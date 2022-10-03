@@ -3,9 +3,9 @@ import { api } from "../../api/api";
 import { useNavigate } from "react-router-dom";
 import {Formik, Field, Form} from "formik";
 
-let img="";
-
 export function Signup() {
+
+  const navigate=useNavigate();
 
 async function onSubmit (values, actions){
     
@@ -38,20 +38,20 @@ return (
   render={({values})=> (
   <Form>
   <div>
-    <label>Nome</label> {values.name}
+    <label>Nome</label>
     <Field name="name" type="text" placeholder="name"/>
     
     <label>E-mail</label>
     <Field name="email" type="email" placeholder="email"/>
 
     <label>Imagem</label>
-    <Field name="avatar" type="file" placeholder="imagem"/>
+    <Field name="avatar" type="file" placeholder="avatar"/>
 
     <label>Birthdate</label>
     <Field name="birthdate" type="date" placeholder="birthdate"/>
 
     <label>Password</label>
-    <Field name="password" type="password" placeholder="imagem"/>
+    <Field name="password" type="password" placeholder="password"/>
     
   </div>
   <button type="submit">botão</button>
