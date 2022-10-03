@@ -5,6 +5,10 @@ import { Signup } from "./pages/Signup";
 import { AuthContextComponent } from "./contexts/authContext";
 import { Profile } from "./pages/Profile";
 import { ErrorPage } from "./pages/ErrorPage";
+import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
+import { Game } from "./pages/Game";
+import { AboutUs } from "./pages/AboutUs";
 
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
@@ -12,6 +16,7 @@ function App() {
   return (
     <>
       <AuthContextComponent>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
@@ -20,9 +25,12 @@ function App() {
             path="/profile"
             element={<ProtectedRoute component={Profile} />}
           />
+          <Route path="game" element={<Game />} />
+          <Route path="about-us" element={<AboutUs />} />
 
           <Route path="*" element={<ErrorPage />} />
         </Routes>
+        <Footer />
       </AuthContextComponent>
     </>
   );
