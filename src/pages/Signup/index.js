@@ -7,26 +7,32 @@ let img="";
 
 export function Signup() {
 
-function onSubmit (values, actions){
-    let img="img:"+`${values.picture}`
-    console.log("langolier", img)
-    const imgURL= handleUpload ();
-    console.log("langolier", img)
-  
+async function onSubmit (values, actions){
+    
+    //const imgURL= handleUpload ();
     console.log("Submit", values)
-  }
-
-  async function handleUpload() {
+    console.log(values.birthdate, typeof values.birthdate)
     try {
-      const uploadData = new FormData();
-      uploadData.append("picture", img);
+            //const imgURL = await handleUpload();
+            await api.post("/user/signup", { ...values, birthDate:new Date(values.birthdate) });
+            navigate("/login");
+          } catch (error) {
+            console.log(error);
+          }
+}
+
+  // async function handleUpload() {
+  //   try {
+  //     const uploadData = new FormData();
+  //     uploadData.append("picture", img);
       
-      const response = await api.post("/user/signup", uploadData);
-      return response.data.url;
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //     const response = await api.post("/user/signup", uploadData);
+  //     return response.data.url;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
   // async function handleSubmit(e) {
     //     try {
     //       const imgURL = await handleUpload();
@@ -47,6 +53,8 @@ return (
     name: "", 
     email: "",
     avatar:"",
+    birthdate: "",
+    password:""
   }}         
   render={({values})=> (
   <Form>
@@ -59,6 +67,12 @@ return (
 
     <label>Imagem</label>
     <Field name="avatar" type="file" placeholder="imagem"/>
+
+    <label>Birthdate</label>
+    <Field name="birthdate" type="date" placeholder="birthdate"/>
+
+    <label>Password</label>
+    <Field name="password" type="password" placeholder="imagem"/>
     
   </div>
   <button type="submit">botão</button>
