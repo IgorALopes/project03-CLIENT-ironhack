@@ -10,7 +10,7 @@ export function Navbar() {
         </Link>
         <SearchBar />
         <div>
-          <Link to={"/home"}>
+          <Link to={"/"}>
             <p>Home</p>
           </Link>
 
