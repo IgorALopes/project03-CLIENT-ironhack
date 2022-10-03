@@ -21,28 +21,7 @@ async function onSubmit (values, actions){
           }
 }
 
-  // async function handleUpload() {
-  //   try {
-  //     const uploadData = new FormData();
-  //     uploadData.append("picture", img);
-      
-  //     const response = await api.post("/user/signup", uploadData);
-  //     return response.data.url;
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  // async function handleSubmit(e) {
-    //     try {
-    //       const imgURL = await handleUpload();
-    //       await api.post("/user/signup", { ...form, img: imgURL });
-    
-    //       navigate("/login");
-    //     } catch (error) {
-    //       console.log(error);
-    //     }
-    //   }
+  
 
 
 return (
@@ -82,6 +61,7 @@ return (
 </div>
 )
 }
+
 
 //   function handleImage(e) {
 //     setImg(e.target.files[0]);
@@ -143,3 +123,26 @@ return (
 //     </form>
 //   );
 // }
+
+// async function handleUpload() {
+  //   try {
+  //     const uploadData = new FormData();
+  //     uploadData.append("picture", img);
+      
+  //     const response = await api.post("/user/signup", uploadData);
+  //     return response.data.url;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  // async function handleSubmit(e) {
+    //     try {
+    //       const imgURL = await handleUpload();
+    //       await api.post("/user/signup", { ...form, img: imgURL });
+    
+    //       navigate("/login");
+    //     } catch (error) {
+    //       console.log(error);
+    //     }
+    //   }
