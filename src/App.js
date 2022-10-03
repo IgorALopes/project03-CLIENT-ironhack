@@ -7,6 +7,8 @@ import { Profile } from "./pages/Profile";
 import { ErrorPage } from "./pages/ErrorPage";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
+import { Game } from "./pages/Game";
+import { AboutUs } from "./pages/AboutUs";
 
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
@@ -23,6 +25,8 @@ function App() {
             path="/profile"
             element={<ProtectedRoute component={Profile} />}
           />
+          <Route path="game" element={<Game />} />
+          <Route path="about-us" element={<AboutUs />} />
 
           <Route path="*" element={<ErrorPage />} />
         </Routes>
