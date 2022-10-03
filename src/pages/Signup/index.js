@@ -5,24 +5,37 @@ import {Formik, Field, Form} from "formik";
 
 export function Signup() {
 
-  const navigate=useNavigate();
+const navigate=useNavigate();
 
-async function onSubmit (values, actions){
-    
-    //const imgURL= handleUpload ();
-    console.log("Submit", values)
-    console.log(values.birthdate, typeof values.birthdate)
+async function handleUpload(props) {
     try {
-            //const imgURL = await handleUpload();
-            await api.post("/user/signup", { ...values, birthDate:new Date(values.birthdate) });
+      console.log(props)
+      
+      const uploadData = new FormData();
+      uploadData.append("picture", props);
+      const response = await api.post("/user/signup", uploadData);
+      console.log(response.data.url);
+      return response.data.url;
+    
+    } catch (error) {
+      console.log(error);
+    }
+}
+
+  async function onSubmit (values, actions){
+    
+    const imgURL= handleUpload (values.avatar);
+    console.log("Submit", values)
+    
+    try {
+            const imgURL = await handleUpload();
+            console.log("apapapapapapap", imgURL);
+            await api.post("/user/signup", { ...values, birthDate:new Date(values.birthdate), avatar: imgURL });
             navigate("/login");
           } catch (error) {
             console.log(error);
           }
 }
-
-  
-
 
 return (
   <div>
@@ -63,11 +76,10 @@ return (
 }
 
 
+
 //   function handleImage(e) {
 //     setImg(e.target.files[0]);
 //   }
-
-
 
 //   async function handleSubmit(e) {
 //     e.preventDefault();
@@ -124,17 +136,7 @@ return (
 //   );
 // }
 
-// async function handleUpload() {
-  //   try {
-  //     const uploadData = new FormData();
-  //     uploadData.append("picture", img);
-      
-  //     const response = await api.post("/user/signup", uploadData);
-  //     return response.data.url;
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
+
 
   // async function handleSubmit(e) {
     //     try {
