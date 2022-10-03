@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiURLs = {
-  development: "http://127.0.0.1:4000/api/1.0",
+  development: "http://localhost:4000/api/1.0",
   production: "LINK DA SUA API DEPLOYADA AQUI!",
 };
 
