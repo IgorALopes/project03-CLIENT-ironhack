@@ -6,6 +6,7 @@ import { AuthContextComponent } from "./contexts/authContext";
 import { Profile } from "./pages/Profile";
 import { ErrorPage } from "./pages/ErrorPage";
 import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
 
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
@@ -25,6 +26,7 @@ function App() {
 
           <Route path="*" element={<ErrorPage />} />
         </Routes>
+        <Footer />
       </AuthContextComponent>
     </>
   );
