@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    /* .navBg {
+        @apply bg-white
+    } */
+}
+
+* {
+    color: #353535;
+}

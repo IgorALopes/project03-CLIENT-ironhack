@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Waterfall&display=swap');
+
+
+.headerHome {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../../images/Hot-oven.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: local;
+    height: 600px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* box-shadow: 0px 5px 15px rgb(0, 0, 0); */
+    /* position: absolute; */
+}
+
+.headerInnerContent span {
+    font-family: 'Waterfall', cursive;
+    font-size: 2em;
+    color: white;
+}
+
+.headerInnerContent h1 {
+    text-align: center;
+    color: white;
+    font-size: 4em;
+}
