@@ -1,0 +1,28 @@
+function onSubmit (values, actions){
+    console.log("Submit", values)
+  }
+
+return (
+  <div>
+<Formik 
+  onSubmit={onSubmit}
+  initialValues={{
+    name: "", 
+    email: "",
+  }}         
+  render={({values})=> (
+  <Form>
+  <div>
+    <label>Nome</label> {values.name}
+    <Field name="name" type="text" />
+    
+    <label>E-mail</label>
+    <Field name="email" type="email"/>
+    Teste!
+  </div>
+  <button type="submit">botão</button>
+  </Form>
+  )}
+/>
+</div>
+)

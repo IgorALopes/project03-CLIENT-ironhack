@@ -9,9 +9,11 @@ export function Navbar() {
         <Link to={"/"}>
           <img style={{width: "150px"}} src={logoBk} alt="Game Tasting logo"/>
         </Link>
+
         <div className={style.navLinks}>
           <Link to={"/home"}>
             <p className={style.navLinkAnima}>Home</p>
+
           </Link>
           <Link to={`/about-us`}>
             <p className={style.navLinkAnima}>About</p>
