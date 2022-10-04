@@ -17,11 +17,10 @@ function handleImage(e) {
 
 async function handleUpload() {
     try {
-      console.log(files)
+      
       const uploadData = new FormData();
-      uploadData.append("picture", files);
-      const response = await api.post("/user/uploadImage", uploadData);
-      console.log("ahushuahsuahsuhausuauh", response.data.url);
+      uploadData.append("pictures", files);
+      const response = await api.post("/uploadImage/uploadImage", uploadData);
       return response.data.url;
     
     } catch (error) {
@@ -30,22 +29,33 @@ async function handleUpload() {
 }
 
   async function onSubmit (values, actions){
-    console.log("Submit", values)
-    const imgURL= handleUpload ();
+    
+    const imgURL= handleUpload();
     console.log("Submit", values)
     
     try {
             const imgURL = await handleUpload();
-            console.log("apapapapapapap", imgURL);
             await api.post("/user/signup", { ...values, birthDate:new Date(values.birthdate), avatar:imgURL });
-            //navigate("/login");
+            navigate("/login");
           } catch (error) {
             console.log(error);
           }
 }
 
-return (
+return (<>
+  
   <div>
+    <img src="https://www.frontierfireprotection.com/wp-content/uploads/freshizer/730cbf2e2455c64c961be8e18e793f6b_3-Things-a-Fire-Needs-2000-c-90.jpg" width="200"></img>
+    <h1>Who are you ?</h1>
+    <label>Be a part of community</label>
+  
+  </div>
+  
+  <div>
+  <form>
+    <label htmlFor="formImg">Sua foto de perfil:</label>
+    <input type="file" id="formImg" onChange={handleImage} />
+  </form>
 <Formik 
   onSubmit={onSubmit}
   initialValues={{
@@ -74,81 +84,7 @@ return (
   </Form>
   )}
 />
-<form>
-    <label htmlFor="formImg">Sua foto de perfil:</label>
-    <input type="file" id="formImg" onChange={handleImage} />
-</form>
+
 </div>
-)
+</>)
 }
-
-
-
-  
-
-//   async function handleSubmit(e) {
-//     e.preventDefault();
-
-//     try {
-//       const imgURL = await handleUpload();
-//       await api.post("/user/signup", { ...form, img: imgURL });
-
-//       navigate("/login");
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <label htmlFor="formName">Nome:</label>
-//       <input
-//         id="formName"
-//         name="name"
-//         type="text"
-//         value={form.name}
-//         onChange={handleChange}
-//       />
-//      
-
-//       <label htmlFor="formEmail">E-mail:</label>
-//       <input
-//         id="formEmail"
-//         name="email"
-//         type="email"
-//         value={form.email}
-//         onChange={handleChange}
-//       />
-//       <label htmlFor="formPassword">Senha:</label>
-//       <input
-//         id="formPassword"
-//         name="password"
-//         type="password"
-//         value={form.password}
-//         onChange={handleChange}
-//       />
-//       <label htmlFor="formConfirmPassword">Confirmação de senha</label>
-//       <input
-//         id="formConfirmPassword"
-//         type="password"
-//         name="confirmPassword"
-//         value={form.confirmPassword}
-//         onChange={handleChange}
-//       />
-//       <button type="submit">Cadastrar</button>
-//     </form>
-//   );
-// }
-
-
-
-  // async function handleSubmit(e) {
-    //     try {
-    //       const imgURL = await handleUpload();
-    //       await api.post("/user/signup", { ...form, img: imgURL });
-    
-    //       navigate("/login");
-    //     } catch (error) {
-    //       console.log(error);
-    //     }
-    //   }
