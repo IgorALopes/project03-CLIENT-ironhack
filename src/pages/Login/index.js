@@ -10,6 +10,7 @@ export function Login() {
 
   const { setLoggedInUser } = useContext(AuthContext);
 
+  
   async function handleSubmit(valueLogin, actions) {
     
     const password= `${valueLogin.password}`
@@ -28,6 +29,17 @@ export function Login() {
   }
 
   return (<>
+
+    <div>
+        <h1>Welcome, traveler !</h1>
+        <label>Take a seat next to this bonfire and rest.</label>
+        <label>We wanna cook you</label>
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/086a2a33070905.569eb2709b598.jpg" width="200"></img>
+
+    </div>
+
+
+
     <div>
     <Formik 
       onSubmit={handleSubmit}

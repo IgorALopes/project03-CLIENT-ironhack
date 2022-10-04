@@ -7,14 +7,20 @@ export function Signup() {
 
 const navigate=useNavigate();
 
-async function handleUpload(props) {
+const [files, setFiles] = useState ("");
+
+function handleImage(e) {
+  setFiles(e.target.files[0]);
+  console.log(files)
+}
+
+
+async function handleUpload() {
     try {
-      console.log(props)
       
       const uploadData = new FormData();
-      uploadData.append("picture", props);
-      const response = await api.post("/user/signup", uploadData);
-      console.log(response.data.url);
+      uploadData.append("pictures", files);
+      const response = await api.post("/uploadImage/uploadImage", uploadData);
       return response.data.url;
     
     } catch (error) {
@@ -24,21 +30,27 @@ async function handleUpload(props) {
 
   async function onSubmit (values, actions){
     
-    const imgURL= handleUpload (values.avatar);
-    console.log("Submit", values)
     
     try {
             const imgURL = await handleUpload();
-            console.log("apapapapapapap", imgURL);
-            await api.post("/user/signup", { ...values, birthDate:new Date(values.birthdate), avatar: imgURL });
+            await api.post("/user/signup", { ...values, birthDate:new Date(values.birthdate), avatar:imgURL });
             navigate("/login");
           } catch (error) {
             console.log(error);
           }
 }
 
-return (
+return (<>
+  
   <div>
+    <img src="https://www.frontierfireprotection.com/wp-content/uploads/freshizer/730cbf2e2455c64c961be8e18e793f6b_3-Things-a-Fire-Needs-2000-c-90.jpg" width="200"></img>
+    <h1>Who are you ?</h1>
+    <label>Be a part of community</label>
+  
+  </div>
+  
+  <div>
+  
 <Formik 
   onSubmit={onSubmit}
   initialValues={{
@@ -57,94 +69,20 @@ return (
     <label>E-mail</label>
     <Field name="email" type="email" placeholder="email"/>
 
-    <label>Imagem</label>
-    <Field name="avatar" type="file" placeholder="avatar"/>
-
     <label>Birthdate</label>
     <Field name="birthdate" type="date" placeholder="birthdate"/>
 
     <label>Password</label>
     <Field name="password" type="password" placeholder="password"/>
-    
-  </div>
+    </div>
   <button type="submit">botão</button>
   </Form>
   )}
 />
+  <form>
+    <label htmlFor="formImg">Sua foto de perfil:</label>
+    <input type="file" id="formImg" onChange={handleImage} />
+  </form>
 </div>
-)
+</>)
 }
-
-
-
-//   function handleImage(e) {
-//     setImg(e.target.files[0]);
-//   }
-
-//   async function handleSubmit(e) {
-//     e.preventDefault();
-
-//     try {
-//       const imgURL = await handleUpload();
-//       await api.post("/user/signup", { ...form, img: imgURL });
-
-//       navigate("/login");
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <label htmlFor="formName">Nome:</label>
-//       <input
-//         id="formName"
-//         name="name"
-//         type="text"
-//         value={form.name}
-//         onChange={handleChange}
-//       />
-//       <label htmlFor="formImg">Sua foto de perfil:</label>
-//       <input type="file" id="formImg" onChange={handleImage} />
-
-//       <label htmlFor="formEmail">E-mail:</label>
-//       <input
-//         id="formEmail"
-//         name="email"
-//         type="email"
-//         value={form.email}
-//         onChange={handleChange}
-//       />
-//       <label htmlFor="formPassword">Senha:</label>
-//       <input
-//         id="formPassword"
-//         name="password"
-//         type="password"
-//         value={form.password}
-//         onChange={handleChange}
-//       />
-//       <label htmlFor="formConfirmPassword">Confirmação de senha</label>
-//       <input
-//         id="formConfirmPassword"
-//         type="password"
-//         name="confirmPassword"
-//         value={form.confirmPassword}
-//         onChange={handleChange}
-//       />
-//       <button type="submit">Cadastrar</button>
-//     </form>
-//   );
-// }
-
-
-
-  // async function handleSubmit(e) {
-    //     try {
-    //       const imgURL = await handleUpload();
-    //       await api.post("/user/signup", { ...form, img: imgURL });
-    
-    //       navigate("/login");
-    //     } catch (error) {
-    //       console.log(error);
-    //     }
-    //   }
