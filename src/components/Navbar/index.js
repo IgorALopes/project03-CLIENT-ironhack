@@ -1,32 +1,31 @@
 import { Link } from "react-router-dom";
-import { SearchBar } from "../Searchbar";
+import style from "./style.module.css"
+import logoBk from "../../images/GameTastingLOGO-BK.png"
 
 export function Navbar() {
   return (
-    <div>
-      <div>
+    <nav className="nav">
+      <div className={style.navContent}>
         <Link to={"/"}>
-          <h1>Logo do site</h1>
+          <img style={{width: "150px"}} src={logoBk} alt="Game Tasting logo"/>
         </Link>
-        <SearchBar />
-        <div>
-          <Link to={"/"}>
-            <p>Home</p>
-          </Link>
 
+        <div className={style.navLinks}>
+          <Link to={"/home"}>
+            <p className={style.navLinkAnima}>Home</p>
+
+          </Link>
           <Link to={`/about-us`}>
-            <p>Sobre</p>
+            <p className={style.navLinkAnima}>About</p>
           </Link>
-
           <Link to={"/signup"}>
-            <p>Sign up</p>
+            <p className={style.navLinkAnima}>Sign up</p>
           </Link>
-
           <Link to={"/login"}>
-            <p>Login</p>
+            <p className={style.navLinkAnima}>Login</p>
           </Link>
         </div>
       </div>
-    </div>
+    </nav>
   );
 }
