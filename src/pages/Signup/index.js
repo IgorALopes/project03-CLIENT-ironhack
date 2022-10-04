@@ -30,8 +30,6 @@ async function handleUpload() {
 
   async function onSubmit (values, actions){
     
-    const imgURL= handleUpload();
-    console.log("Submit", values)
     
     try {
             const imgURL = await handleUpload();
@@ -52,10 +50,7 @@ return (<>
   </div>
   
   <div>
-  <form>
-    <label htmlFor="formImg">Sua foto de perfil:</label>
-    <input type="file" id="formImg" onChange={handleImage} />
-  </form>
+  
 <Formik 
   onSubmit={onSubmit}
   initialValues={{
@@ -84,7 +79,10 @@ return (<>
   </Form>
   )}
 />
-
+  <form>
+    <label htmlFor="formImg">Sua foto de perfil:</label>
+    <input type="file" id="formImg" onChange={handleImage} />
+  </form>
 </div>
 </>)
 }
