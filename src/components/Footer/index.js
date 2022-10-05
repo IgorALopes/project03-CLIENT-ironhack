@@ -1,5 +1,5 @@
 import logo from "../../images/GameTastingLOGO-BK.png";
-import { SearchBar } from "../Searchbar";
+import { FooterSearchBar } from "../FooterSearchBar";
 
 export function Footer() {
   return (
@@ -35,8 +35,13 @@ export function Footer() {
         . All Rights Reserved.
       </span>
       <div class="flex flex-wrap items-center gap-x-6 border-solid border-2 ">
-        <img style={{ width: "50px" }} src={logo} alt="Game Tasting logo" />
-        <SearchBar class="text-sm text-gray-500 dark:text-gray-400 sm:mt-0" />
+        <img
+          class="border-solid border-2"
+          style={{ width: "50px" }}
+          src={logo}
+          alt="Game Tasting logo"
+        />
+        <FooterSearchBar class="border-solid border-2" />
       </div>
       <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0 ">
         <li>
