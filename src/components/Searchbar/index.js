@@ -1,3 +1,9 @@
+import style from "./style.module.css"
+
 export function SearchBar() {
-  return <h1>SearchBar aqui</h1>;
+  return <>
+  <div className={style.searchBar}>
+    <h1>SearchBar aqui</h1>
+  </div>
+  </>
 }
