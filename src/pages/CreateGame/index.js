@@ -41,13 +41,6 @@ export function CreateGame () {
         }
     }
 
-    useEffect(()=>{return},[screenshotsUp])
-
-
-
-    //     // setForm({...formPri, atrResistencia:1+(2*Number(`${formPri.atrVontade}`))});
-    //     // },[formPri.atrVontade])
-
     async function handleUpload2(e) {
         e.preventDefault();
         try {
@@ -68,11 +61,15 @@ export function CreateGame () {
     async function onSubmit (valuesGame, actions) {
 
         console.log(valuesGame, loggedInUser, loggedInUser.user._id)
-        const imgLogoURL=handleUpload();
+        const imgLogoURL= await handleUpload();
         console.log(imgLogoURL);
+        valuesGame.gameLogo=String(imgLogoURL);
+        valuesGame.screenshots=[...screenshotsUp]
+        console.log("hauhauhauhauauhuahuhauhauhua", valuesGame.screenshots)
+
         try {
-            //await api.post("/user/signup", { ...values, birthDate:new Date(values.birthdate) });
-            //navigate("/login");
+            await api.post("/game/new-game", { ...valuesGame, screenShots:[...screenshotsUp]});
+            navigate("/profile");
         } catch (error) {
             console.log(error);
         }
@@ -93,8 +90,6 @@ export function CreateGame () {
         <Formik 
             onSubmit={onSubmit}
                 initialValues={{
-                owner: "", 
-                createdAt: "",
                 title:"",
                 type: "",
                 esrb:"",
@@ -102,17 +97,18 @@ export function CreateGame () {
                 linkRepo:"",
                 description:"",
                 gameLogo:"",
+                screenshots:[],
             }}         
     render={({valuesGame})=> (<Form>
             <div className="formFields">
-                <label>Title</label> 
+                {/* <label>Title</label>  */}
                 <Field name="title" type="text" placeholder="title"/>
     
-                <label>Genre</label> 
+                {/* <label>Genre</label>  */}
                 <Field name="type" type="text" placeholder="genre"/>
 
                     <div>
-                        <label>ESRB</label>
+                        <span>ESRB</span>
                         <div>
                         <Field name="esrb" type="radio" value="Everyone"/>
                         <label>Everyone</label>
@@ -139,23 +135,18 @@ export function CreateGame () {
 
                 <label>Description</label>
                 <Field name="description" type="string" placeholder="description"/>
-
-            </div>
-            <button type="submit">botão</button>
-        </Form>
-)}
-/>
-            <div>
+                <div>
                 <form>
-                    <label htmlFor="gameLogo">Front Image:</label>
+                    <label htmlFor="gameLogo">Logo:</label>
                     <input type="file" id="gameLogo" onChange={handleImage} />
                 </form>
+                </div>
             </div>
             <div>
-                <form onSubmit={handleUpload2}>
+                <form>
                     <label htmlFor="screenshots">Screenshot:</label>
                     <input type="file" id="screenshots" onChange={handleImage2} />
-                    <button type="submit">Adicionar</button>
+                    <button type="button" onClick={handleUpload2}>Adicionar</button>
                 </form>
             </div>
             <div>
@@ -169,22 +160,15 @@ export function CreateGame () {
                                     </>);
                                     })}
             </div>
+            <button type="submit">botão</button>
+        </Form>
+)}
+/>
+            
+            
         </div>
 </div>
     </>) 
 
     
 }
-
-
-//
-
-
-
-
-
-
-
-// 
-//   },
-//   
