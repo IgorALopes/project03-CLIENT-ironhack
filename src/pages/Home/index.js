@@ -13,9 +13,9 @@ export function Home() {
     async function fetchCards() {
       try {
         const response = await axios.get(
-          "https://ironrest.herokuapp.com/TheBestSoccerTeams"
+          "http://localhost:4000/api/1.0/game/games"
         );
-
+        
         setCards([...response.data]);
       } catch (err) {
         console.log(err);
@@ -45,6 +45,7 @@ export function Home() {
                   <Card
                     title={currentCard.title}
                     gameLogo={currentCard.gameLogo}
+                    owner={currentCard.owner.name}
                   />
                 </Link>
               </>

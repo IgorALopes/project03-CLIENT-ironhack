@@ -1,3 +1,36 @@
 .gameCard {
+    width: 30vw;
+    height: 40vw;
+    max-width: 250px;
+    max-height: 300px;
+    min-width: 150px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+.gameCard p {
+    text-align: center;
+}
+
+.gamePlateAndLogo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gamePlate {
+    width: 30vw;
+    max-width: 250px;
+    min-width: 150px;
+}
+
+.gameLogo {
+    width: 15vw;
+    max-width: 130px;
+    min-width: 70px;
+    position: absolute;
 }
