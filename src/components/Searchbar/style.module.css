@@ -1,3 +1,25 @@
 .searchBar {
+    width: 60vw;
+    max-width: 600px;
     margin: 80px 0px;
+    position: relative;
+    text-align: center;
+}
+
+.searchBar:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color:#353535;
+    transform-origin: bottom center;
+    transition: transform 0.25s ease-out;
+}
+
+.searchBar:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom center;
 }
