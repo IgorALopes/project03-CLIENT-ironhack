@@ -11,8 +11,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* box-shadow: 0px 5px 15px rgb(0, 0, 0); */
-    /* position: absolute; */
 }
 
 .headerInnerContent {
@@ -48,7 +46,7 @@
 
 .gameCards {
     width: 100%;
-    padding: 80px 10vw 50px 10vw;
+    padding: 0px 10vw 50px 10vw;
     display: flex;
     justify-content: center;
     align-items: center;
