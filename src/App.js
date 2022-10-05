@@ -9,6 +9,7 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { Game } from "./pages/Game";
 import { AboutUs } from "./pages/AboutUs";
+import { CreateGame } from "./pages/CreateGame";
 
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
@@ -27,7 +28,7 @@ function App() {
           />
           <Route path="game" element={<Game />} />
           <Route path="about-us" element={<AboutUs />} />
-
+          <Route path="/profile/create-game" element={<CreateGame />}/>
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />

@@ -1,0 +1,29 @@
+* {
+    margin:0
+}
+
+.main {
+    border:1px solid red;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ihl {
+    border: 1px solid yellow;
+    align-items: center;
+    width:800px;
+    max-width: 800px;
+}
+
+.formikeiro {
+    flex-direction: row;
+    width:800px;
+    max-width: 800px;
+    align-items: flex-end;
+    border: 1px solid green;
+}
+
+.formFields {
+    border: 1px solid goldenrod
+}
