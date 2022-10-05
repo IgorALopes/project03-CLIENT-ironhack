@@ -8,6 +8,12 @@
     } */
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+
+:root {
+    --global-font-family: 'Parisienne', cursive;
+}
+
 * {
     color: #353535;
 }
