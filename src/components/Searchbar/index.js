@@ -1,3 +1,4 @@
+import mglass from "../../images/Magnifying_glass_icon2.png"
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Select from "react-select";
@@ -70,7 +71,7 @@ export function SearchBar() {
         options={options}
         onChange={handleSelect}
         styles={colourStyles}
-        placeholder="Search"
+        placeholder={<img src={mglass} alt="magnyfing glass icon"/>}
         label="Single select"
         components={{ DropdownIndicator:() => null, IndicatorSeparator:() => null }}
       />
