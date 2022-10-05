@@ -1,8 +1,17 @@
 import { Link } from "react-router-dom";
-import style from "./style.module.css";
-import logoBk from "../../images/GameTastingLOGO-BK.png";
+import style from "./style.module.css"
+import logoBk from "../../images/GameTastingLOGO-BK.png"
+import { AuthContext } from "../../contexts/authContext.js"
+import { useContext } from "react"
 
 export function Navbar() {
+
+  const { loggedInUser } = useContext(AuthContext);
+  const userName = loggedInUser.user.name
+  let userName2 = String(userName).split(' ')[0]
+
+  console.log(userName2)
+
   return (
     <nav className="nav">
       <div className={style.navContent}>
@@ -24,9 +33,15 @@ export function Navbar() {
           <Link to={"/signup"}>
             <p className={style.navLinkAnima}>Sign up</p>
           </Link>
-          <Link to={"/login"}>
-            <p className={style.navLinkAnima}>Login</p>
-          </Link>
+          {!loggedInUser ? 
+            <Link to={"/login"}>
+              <p className={style.navLinkAnima}>Login</p>
+            </Link> :
+            <Link to={"/profile"}>
+              <p className={style.navLinkAnima}>{`Hello, ${userName2}`}</p>
+            </Link>
+          }
+          
         </div>
       </div>
     </nav>

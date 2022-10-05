@@ -10,14 +10,13 @@ import { Footer } from "./components/Footer";
 import { Game } from "./pages/Game";
 import { AboutUs } from "./pages/AboutUs";
 import { CreateGame } from "./pages/CreateGame";
-
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
 function App() {
   return (
     <>
       <AuthContextComponent>
-        <Navbar />
+        <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
