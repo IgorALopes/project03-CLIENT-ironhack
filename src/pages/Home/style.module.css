@@ -2,10 +2,10 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../../images/Hot-oven.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: top;
+    background-position: center;
     background-attachment: local;
     margin-bottom: 50px;
-    height: 500px;
+    height: 60vh;
     width: 100%;
     padding: 40px;
     display: flex;
@@ -19,12 +19,8 @@
     max-width: 600px;
 }
 
-.headerInnerContent img {
-
-}
-
 .headerInnerContent span {
-    font-family: 'Waterfall', cursive;
+    font-family: var(--global-font-family);
     font-size: 2em;
     color: white;
 }
@@ -32,8 +28,8 @@
 .headerInnerContent h1 {
     text-align: center;
     color: white;
-    font-size: 4em;
-    line-height: 0.8;
+    font-size: 2.5em;
+    line-height: 1.3;
 }
 
 .gamesMenu {
@@ -44,8 +40,8 @@
 }
 
 .gamesMenu h2 {
-    height: 130px;
-    font-family: 'Waterfall', cursive;
+    height: 115px;
+    font-family: var(--global-font-family);
     font-size: 5em;
     text-align: center;
 }

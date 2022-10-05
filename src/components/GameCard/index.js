@@ -1,7 +1,7 @@
 import style from "./style.module.css";
 
 export function Card(props) {
-  const { team, year, team_logo } = props;
+  const { title, gameLogo } = props;
 
   return (
       <div className={style.gameCard}>

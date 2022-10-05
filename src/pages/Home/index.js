@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { Card } from "../../components/GameCard";
 import { SearchBar } from "../../components/Searchbar";
-import graph from "../../images/GameTastingLOGO-geometric-BK.png"
+import graphImg from "../../images/GameTastingLOGO-geometric-BK.png"
 
 export function Home() {
   const [cards, setCards] = useState([]);
@@ -27,13 +27,13 @@ export function Home() {
   return <>
     <header className={style.headerHome}>
       <div className={style.headerInnerContent}>
-        <h1><span>Fresh new games ready to taste</span></h1>
+        <h1><span>Fresh new games, ready to taste.</span></h1>
       </div>
     </header>
     <main className={style.gamesMenu}>
-      <img style={{width: "15px"}} src={graph} alt="Graphism"/>
+      <img style={{width: "15px"}} src={graphImg} alt="Graphism"/>
       <h2><span>Menu</span></h2>
-      <img style={{width: "15px"}} src={graph} alt="Graphism"/>
+      <img style={{width: "15px"}} src={graphImg} alt="Graphism"/>
       <div className={style.gameCards}>
       {cards
           .slice(0)
@@ -43,9 +43,8 @@ export function Home() {
               <>
                 <Link to={`/game/${currentCard._id}`}>
                   <Card
-                    team={currentCard.team}
-                    year={currentCard.year}
-                    team_logo={currentCard.team_logo}
+                    title={currentCard.title}
+                    gameLogo={currentCard.gameLogo}
                   />
                 </Link>
               </>
