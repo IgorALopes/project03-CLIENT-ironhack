@@ -10,6 +10,7 @@ const navigate=useNavigate();
 
 const [files, setFiles] = useState ("");
 
+
 function handleImage(e) {
   setFiles(e.target.files[0]);
   console.log(files)

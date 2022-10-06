@@ -11,6 +11,8 @@ export function CreateGame () {
 
     const { loggedInUser } = useContext(AuthContext);
 
+    console.log(loggedInUser)
+
     const [files, setFiles] = useState ("");
     const [files2, setFiles2] = useState ("");
     const [screenshotsUp, setScreen] = useState([]);

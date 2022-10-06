@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import style from "./style.module.css"
 import logoBk from "../../images/GameTastingLOGO-BK.png"
+import { useState } from "react";
 
 export function Navbar() {
+
   return (
     <nav className="nav">
       <div className={style.navContent}>
