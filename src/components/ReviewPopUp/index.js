@@ -2,12 +2,34 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import {api} from "../../api/api";
 import style from "./style.module.css"
+import { useNavigate } from "react-router-dom";
 
 export function ReviewPopUp(props) {
 
+    const navigate = useNavigate();
+    console.log(props.id)
 
     async function onSubmit(valueReview, actions) {
-        return console.log(valueReview)
+            const reviewStr=valueReview.userEvaluation;
+            const reviewValues={rates:{},userEvaluation:"",}
+            for (let objetos in valueReview){
+                valueReview[objetos]=Number(valueReview[objetos]);
+            }
+            Object.assign(reviewValues.rates,valueReview);
+            reviewValues.userEvaluation=reviewStr;
+            delete reviewValues.rates.userEvaluation;
+            console.log(reviewValues)
+
+        try {
+            const response = await api.post(`/review/${props.id}`, { ...reviewValues});
+            navigate(0);
+            props.setTrigging(false);
+        } catch (error) {
+            console.log(error);
+        }
+        return console.log("oi")
+
+
     }
     
     return props.trigger? (<>
@@ -21,7 +43,7 @@ export function ReviewPopUp(props) {
                         playability:1,
                         fun:1,
                         replayability:1,
-                        userEvaluation:0,
+                        userEvaluation:"",
                         }}         
                 render={({valueReview})=> (
                     <Form>
@@ -67,6 +89,9 @@ export function ReviewPopUp(props) {
                                 <Field name="replayability" type="radio" value="4"/>
                                 <Field name="replayability" type="radio" value="5"/>
                         </div>
+                    </div>
+                    <div>
+                        <Field name="userEvaluation" type="string" placeholder="review" />
                     </div>
                     <button type="submit">botão</button>
                     </Form>
