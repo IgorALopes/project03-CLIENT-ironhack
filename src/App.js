@@ -16,10 +16,10 @@ function App() {
   return (
     <>
       <AuthContextComponent>
-        <Navbar/>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<Signup /> } />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route
             path="/profile"
@@ -27,7 +27,7 @@ function App() {
           />
           <Route path="/:id" element={<Game />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/profile/create-game" element={<CreateGame />}/>
+          <Route path="/profile/create-game" element={<CreateGame />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />

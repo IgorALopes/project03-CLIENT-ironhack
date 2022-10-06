@@ -1,13 +1,24 @@
-.searchBar {
-  width: 20vw;
-  max-width: 600px;
-  margin: 80px 0px;
-  position: relative;
-  text-align: center;
-  border: 1px black solid;
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid lightgray;
+  padding: 10px;
 }
 
-.searchBar:after {
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.linkAnima {
+  position: relative;
+  height: 30px;
+}
+
+.linkAnima:after {
   content: "";
   position: absolute;
   width: 100%;
@@ -20,7 +31,7 @@
   transition: transform 0.25s ease-out;
 }
 
-.searchBar:hover:after {
+.linkAnima:hover:after {
   transform: scaleX(1);
   transform-origin: bottom center;
 }

@@ -15,7 +15,7 @@ export function Navbar() {
     userFirstName = String(userName).split(' ')[0]
   }
 
-return (
+  return (
     <nav className="nav">
       <div className={style.navContent}>
         <Link to={"/"}>
@@ -44,7 +44,7 @@ return (
               <p className={style.navLinkAnima}>{`Hello, ${userFirstName}`}</p>
             </Link>
           }
-          
+
         </div>
       </div>
     </nav>
