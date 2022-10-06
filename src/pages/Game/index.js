@@ -21,7 +21,7 @@ export function Game() {
   useEffect(() => {
     async function fetchGame() {
       try {
-        const response = await api.get(`/game/${id}`);
+        const response = await api.get(`/${id}`);
         setGame(response.data);
         console.log(game);
       } catch (err) {
