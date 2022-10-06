@@ -8,6 +8,7 @@ export function AboutUs() {
   return (
     <div className={style.Container}>
       <img src={logoText} alt="Game tasting img" style={{ width: "150px" }} />
+
       <p>
         This is a website for game developers and for who likes to test new
         games. If you are a game developer you have the chance to show your game
@@ -16,7 +17,9 @@ export function AboutUs() {
         feedback and like the games. If you really liked you can add to your
         favorites and follow its development.
       </p>
+
       <img src={logoimg} alt="Game tasting img" style={{ width: "15px" }} />
+
       <p>
         This project was the third and the final one made during Ironhack's Web
         Development bootcamp. After 9 weeks we could develop a full stack
@@ -24,8 +27,11 @@ export function AboutUs() {
         Client side we used ReactJS, formik, bootstrap, React Hot Toast, all
         based in JavaScript, HTML and CSS.
       </p>
+
       <img src={logoimg} alt="Game tasting img" style={{ width: "15px" }} />
+
       <p>repository links: </p>
+
       <div className={style.repositoryLinks}>
         <a
           href="https://github.com/IgorALopes/project03-API-ironhack"
@@ -45,34 +51,42 @@ export function AboutUs() {
           CLIENT
         </a>
       </div>
-      <img src={logoimg} alt="Game tasting img" style={{ width: "15px" }} />
-      <h2>Creators</h2>
-      <img src={logoimg} alt="Game tasting img" style={{ width: "15px" }} />
-      <div className={style.creatorsInfos}>
-        <div className={style.Creator}>
-          <p>Igor Lopes</p>
-          <img src={logoText} alt="Igor img" />
-          <a
-            href="https://github.com/IgorALopes"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <button className={style.btn}>
-              <img className={style.img} src={github} alt="giticon" />
-            </button>
-          </a>
 
-          <a
-            href="https://www.linkedin.com/in/igor-lopes-83232ba9/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <button className={style.btn}>
-              <img className={style.img} src={linkedin} alt="linkdinicon" />
-            </button>
-          </a>
+      <img src={logoimg} alt="Game tasting img" style={{ width: "15px" }} />
+
+      <h2 className={style.creatorsTitle}>Creators</h2>
+
+      <img src={logoimg} alt="Game tasting img" style={{ width: "15px" }} />
+
+      <div className={style.creatorsInfos}>
+        <div className={style.creator}>
+          <p>Igor Lopes</p>
+
+          <img src={logoText} alt="Igor img" />
+
+          <div className={style.links}>
+            <a
+              href="https://github.com/IgorALopes"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <button className={style.btn}>
+                <img className={style.img} src={github} alt="giticon" />
+              </button>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/igor-lopes-83232ba9/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <button className={style.btn}>
+                <img className={style.img} src={linkedin} alt="linkdinicon" />
+              </button>
+            </a>
+          </div>
         </div>
-        <div className={style.Creator}>
+        <div className={style.creator}>
           <p>Maxwell Paulo</p>
           <img src={logoText} alt="Max img" />
           <a
@@ -95,7 +109,7 @@ export function AboutUs() {
             </button>
           </a>
         </div>
-        <div className={style.Creator}>
+        <div className={style.creator}>
           <p>Roger Hainz</p>
           <img src={logoText} alt="Max img" />
 
