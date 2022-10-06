@@ -25,8 +25,8 @@ function App() {
             path="/profile"
             element={<ProtectedRoute component={Profile} />}
           />
-          <Route path="game" element={<Game />} />
-          <Route path="about-us" element={<AboutUs />} />
+          <Route path="/:id" element={<Game />} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route path="/profile/create-game" element={<CreateGame />}/>
           <Route path="*" element={<ErrorPage />} />
         </Routes>

@@ -18,13 +18,13 @@ export function CreateGame () {
 
     function handleImage(e) {
         setFiles(e.target.files[0]);
-        console.log("mamamamama")
+        
     }
 
     function handleImage2(e) {
-        console.log(e.target.files);
+        
         setFiles2(e.target.files[0]);
-        console.log(files2)
+        
         }
 
     async function handleUpload() {
@@ -49,8 +49,8 @@ export function CreateGame () {
             uploadData.append("pictures", files2);
             const response = await api.post("/uploadImage/uploadImage", uploadData);
             screenshotsUp.push(response.data.url);
-            setSShow([...screenshotsUp])
-            console.log(screenshotsUp);
+            setSShow([...screenshotsUp]);
+            
             return response.data.url;
         
         } catch (error) {
@@ -60,29 +60,24 @@ export function CreateGame () {
 
     async function onSubmit (valuesGame, actions) {
 
-        console.log(valuesGame, loggedInUser, loggedInUser.user._id)
+        
         const imgLogoURL= await handleUpload();
-        console.log(imgLogoURL);
+        
         valuesGame.gameLogo=String(imgLogoURL);
         valuesGame.screenshots=[...screenshotsUp]
-        console.log("hauhauhauhauauhuahuhauhauhua", valuesGame.screenshots)
+        
 
         try {
-            await api.post("/game/new-game", { ...valuesGame, screenShots:[...screenshotsUp]});
-            navigate("/profile");
+            const response = await api.post("/game/new-game", { ...valuesGame, screenShots:[...screenshotsUp]});
+            navigate(`/${response.data._id}`);
         } catch (error) {
             console.log(error);
         }
                 
-        return console.log("asgyagsyagsyaysgyagygsy")
+        return 
 
     }
     
-    async function onSubmit2 (e) {
-        e.preventDefault();
-        return console.log("pdospdospdopsodpspdosdpsop")
-
-    }
     return ( <>
     <div>
         <h1>Create Game</h1>
