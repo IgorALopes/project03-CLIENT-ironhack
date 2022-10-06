@@ -14,8 +14,7 @@ export function Signup() {
     console.log(files);
   }
 
-  async function handleUpload() {
-
+async function handleUpload() {
     try {
       const uploadData = new FormData();
       uploadData.append("pictures", files);

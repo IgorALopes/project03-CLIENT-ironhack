@@ -14,6 +14,8 @@ export function Game() {
   const [game, setGame] = useState({});
   const [screenShotView, setScreen] = useState([]);
   const [reviewShow, setReview] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [usersReviewId, setURI] = useState([]);
   let hiddenDelete=true;
 
   useEffect(() => {
@@ -21,7 +23,7 @@ export function Game() {
       try {
         const response = await api.get(`/game/${id}`);
         setGame(response.data);
-        console.log(game);
+        //console.log(game);
       } catch (err) {
         console.log(err);
       }
@@ -29,12 +31,36 @@ export function Game() {
     fetchGame();
   }, [id]);
 
+  useEffect(()=> {
+    async function fetchPlayers() {
+      try {
+        const response = await api.get(`/review/${id}`);
+        setUsers(response.data);
+
+        console.log("gaygayagygaaygagygayg", response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchPlayers();
+  }, [])
+
   useEffect(() => {
         //console.log(game)
         setScreen(game.screenShots);
         setReview(game.reviews);
-        console.log(screenShotView);
+        console.log(game.reviews);
         }, [game]);
+
+// useEffect(()=> {
+//     function URI() {
+      
+//     }
+//     fetchPlayers();
+//   }, [])
+
+
+
 
   async function handleReview () {
     console.log(triggingReview);
@@ -74,11 +100,38 @@ return (
             <h2>{game.description}</h2>
           </div>
         </div>
-
         <div className={style.review}>
-          <ReviewPopUp trigger={triggingReview}/>
+        <ReviewPopUp trigger={triggingReview} setTrigging={setTrigging} id={id}/>
         </div>
-      </div>  
-    </div>    
+        <div>
+        {reviewShow ? (
+              reviewShow.map((current) => {
+                return (
+                  <>
+                    <div>
+                      <div>
+                        {/* <label>Owner: {users.filter((curr)=>{if(curr.reviews===current._id){return {curr}}})}</label> */}
+                      </div>
+                      <div>
+                        <label>Graphics: {current.rates.graphics}</label>
+                        <label>Sound Effects: {current.rates.soundEffects}</label>
+                        <label>Gameplay: {current.rates.playability}</label>
+                        <label>Fun: {current.rates.fun}</label>
+                        <label>Replayability: {current.rates.replayability}</label>
+                      </div>
+                        <label>{current.userEvaluation}</label>
+                      </div>
+                      <div>
+                          <button type="button">🍪</button>
+                      </div>
+                  </>
+                );
+              })
+            ) : (
+              <></>
+            )}
+        </div>
+    </div>  
+  </div>    
   </>);
 }
