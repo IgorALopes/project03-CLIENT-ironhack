@@ -1,37 +1,31 @@
-.container {
+.footer {
+  padding: 80px 5vw 80px 5vw;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
-  border-top: 2px solid lightgray;
-  padding: 10px;
+  justify-content: space-evenly;
+  gap: 5vw;
+  border-top: 1px solid #adadad;
 }
 
-.links {
+.copyRigths {
+  text-align: center;
+}
+
+.searchAndLogo {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
 }
 
-.linkAnima {
-  position: relative;
-  height: 30px;
-}
-
-.linkAnima:after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 1px;
-  bottom: 0;
-  left: 0;
-  background-color: #353535;
-  transform-origin: bottom center;
-  transition: transform 0.25s ease-out;
-}
-
-.linkAnima:hover:after {
-  transform: scaleX(1);
-  transform-origin: bottom center;
+.siteMapLinks {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
 }

@@ -1,48 +1,58 @@
-import logo from "../../images/GameTastingLOGO-pan-BK.png";
+import logo from "../../images/GameTastingLOGO-BK.png";
+import { FooterSearchBar } from "../FooterSearchBar";
 import style from "./style.module.css";
 
 export function Footer() {
   return (
-    <div className={style.container}>
-      <p>
-        © Created by:{" "}
+    <footer className={style.footer}>
+      <span className={style.copyRigths}>
+        © 2022 Created by:{" "}
         <a
           href="https://www.linkedin.com/in/igor-lopes-83232ba9/"
+          className=""
           target="_blank"
           rel="noreferrer"
-          className={style.linkAnima}
         >
-          Igor Lopes
-        </a>
+          <strong>Igor Lopes</strong>
+        </a>{" "}
         ,{" "}
         <a
           href="https://www.linkedin.com/in/-maxpaulo/"
+          className=""
           target="_blank"
           rel="noreferrer"
-          className={style.linkAnima}
         >
-          Maxwell Paulo
-        </a>{" "}
+          <strong>Maxwell Paulo</strong>{" "}
+        </a>
         and{" "}
         <a
           href="https://www.linkedin.com/in/roger-hainz-210577ba/"
+          className=""
           target="_blank"
           rel="noreferrer"
-          className={style.linkAnima}
         >
-          Roger Hainz
+          <strong>Roger Hainz</strong>
         </a>
-        .
-      </p>
-      <img src={logo} alt="Game Tasting logo" style={{ width: "60px" }} />
-      <div className={style.links}>
-        <a href="/" className={style.linkAnima}>
-          Home
-        </a>
-        <a href="about-us" className={style.linkAnima}>
-          About
-        </a>
+        . All Rights Reserved.
+      </span>
+      <div className={style.searchAndLogo}>
+        <img
+          className=""
+          style={{ width: "100px" }}
+          src={logo}
+          alt="Game Tasting logo"
+          href="/"
+        />
+        <FooterSearchBar />
       </div>
-    </div>
+      <ul className={style.siteMapLinks}>
+        <li>
+          <a href="/about-us">About</a>
+        </li>
+        <li>
+          <a href="/">Home</a>
+        </li>
+      </ul>
+    </footer>
   );
 }
