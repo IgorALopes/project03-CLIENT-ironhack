@@ -7,10 +7,13 @@ import { useContext } from "react"
 export function Navbar() {
 
   const { loggedInUser } = useContext(AuthContext);
-  const userName = loggedInUser.user.name
-  let userName2 = String(userName).split(' ')[0]
 
-  console.log(userName2)
+  let userFirstName = ''
+
+  if (loggedInUser) {
+    const userName = loggedInUser.user.name
+    userFirstName = String(userName).split(' ')[0]
+  }
 
   return (
     <nav className="nav">
@@ -35,7 +38,7 @@ export function Navbar() {
               <p className={style.navLinkAnima}>Login</p>
             </Link> :
             <Link to={"/profile"}>
-              <p className={style.navLinkAnima}>{`Hello, ${userName2}`}</p>
+              <p className={style.navLinkAnima}>{`Hello, ${userFirstName}`}</p>
             </Link>
           }
           
