@@ -8,6 +8,7 @@ import { Card } from "../../components/GameCard";
 export function Profile() {
 
   const [cards, setCards] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     async function fetchCards() {
@@ -22,6 +23,21 @@ export function Profile() {
       }
     }
     fetchCards();
+  }, []);
+
+  useEffect(() => {
+    async function fetchUsers() {
+      try {
+        const response = await axios.get(
+          "http://localhost:4000/api/1.0/user/users"
+        );
+        
+        setUsers([...response.data]);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchUsers();
   }, []);
 
 
@@ -83,6 +99,23 @@ export function Profile() {
           </div>
           <div className={style.reviewsMade}>
             <h2 className={style.subTitles}>Reviews you made</h2>
+            <div className={style.cardsContainer}>
+              {users
+                .slice(0)
+                .reverse()
+                .map((currentUser) => {
+                  if (loggedInUser.user._id === currentUser.owner._id) {
+                  return (
+                    <>
+                      <Link to={`/`}>
+                        <div className={style.reviewsRow}>
+                          <p>{currentUser.name}</p>
+                        </div>
+                      </Link>
+                    </>
+                  )}
+                })}
+            </div>
           </div>
           <button className={style.buttons} onClick={handleLogOut}>Logout</button>
         </div>
