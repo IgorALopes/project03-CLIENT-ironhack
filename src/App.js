@@ -11,6 +11,7 @@ import { Game } from "./pages/Game";
 import { AboutUs } from "./pages/AboutUs";
 import { CreateGame } from "./pages/CreateGame";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import { EditReview } from "./pages/EditReview";
 
 function App() {
   return (
@@ -29,6 +30,11 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/profile/create-game" element={<CreateGame />} />
           <Route path="*" element={<ErrorPage />} />
+          <Route
+            path="/edit-review/:id"
+            element={<ProtectedRoute component={EditReview} />}
+          />
+          />
         </Routes>
         <Footer />
       </AuthContextComponent>
