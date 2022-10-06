@@ -15,6 +15,10 @@
 
 .headerInnerContent {
     max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .headerInnerContent span {
@@ -42,6 +46,10 @@
     font-family: var(--global-font-family);
     font-size: 5em;
     text-align: center;
+}
+
+.menuSub {
+    margin-top: 80px;
 }
 
 .gameCards {

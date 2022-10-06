@@ -34,6 +34,7 @@ export function Home() {
       <img style={{width: "15px"}} src={graphImg} alt="Graphism"/>
       <h2><span>Menu</span></h2>
       <img style={{width: "15px"}} src={graphImg} alt="Graphism"/>
+      <p className={style.menuSub}>Choose a game plate, taste it and make a review.</p>
       <SearchBar/>
       <div className={style.gameCards}>
       {cards
