@@ -3,12 +3,12 @@ import { FooterSearchBar } from "../FooterSearchBar";
 
 export function Footer() {
   return (
-    <footer class="p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
-      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400 ">
+    <footer className="">
+      <span className="">
         © 2022 Created by:{" "}
         <a
           href="https://www.linkedin.com/in/igor-lopes-83232ba9/"
-          class="hover:underline"
+          className=""
           target="_blank"
           rel="noreferrer"
         >
@@ -17,7 +17,7 @@ export function Footer() {
         ,{" "}
         <a
           href="https://www.linkedin.com/in/-maxpaulo/"
-          class="hover:underline"
+          className=""
           target="_blank"
           rel="noreferrer"
         >
@@ -26,7 +26,7 @@ export function Footer() {
         and{" "}
         <a
           href="https://www.linkedin.com/in/roger-hainz-210577ba/"
-          class="hover:underline"
+          className=""
           target="_blank"
           rel="noreferrer"
         >
@@ -34,23 +34,23 @@ export function Footer() {
         </a>
         . All Rights Reserved.
       </span>
-      <div class="flex flex-wrap items-center gap-x-6 border-solid border-2 ">
+      <div className="">
         <img
-          class="border-solid border-2"
+          className=""
           style={{ width: "50px" }}
           src={logo}
           alt="Game Tasting logo"
         />
-        <FooterSearchBar class="border-solid border-2" />
+        <FooterSearchBar className="" />
       </div>
-      <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0 ">
+      <ul className="">
         <li>
-          <a href="/about-us" class="mr-4 hover:underline md:mr-6 ">
+          <a href="/about-us" className="">
             About
           </a>
         </li>
         <li>
-          <a href="/" class="mr-4 hover:underline md:mr-6">
+          <a href="/" className="">
             Home
           </a>
         </li>
