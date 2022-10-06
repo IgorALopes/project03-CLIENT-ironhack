@@ -67,7 +67,8 @@ export function Game() {
     if (!triggingReview) {setTrigging(true)} 
   }
 
-return (<>
+return (
+  <>
     <div>
       <div>
         <div>

@@ -124,7 +124,7 @@ export function CreateGame () {
                         </div>
                     </div>
 
-                <label>Deploy´s Link</label>
+                <label>Deploy's Link</label>
                 <Field name="linkDeploy" type="string" placeholder="deploys url"/>
 
                 <label>Repository Link</label>
@@ -152,7 +152,7 @@ export function CreateGame () {
                             return (<>
                                     <div>
                                         <p>{current}</p>
-                                        <img src={current} width="80px"></img>
+                                        <img src={current} width="80px" alt='Game Screenshot'></img>
                                     </div>
                                     </>);
                                     })}
