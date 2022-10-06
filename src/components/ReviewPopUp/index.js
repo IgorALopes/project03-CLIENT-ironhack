@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 export function ReviewPopUp(props) {
 
     const navigate = useNavigate();
-    console.log(props.id)
+    //console.log(props.id)
 
     async function onSubmit(valueReview, actions) {
             const reviewStr=valueReview.userEvaluation;
