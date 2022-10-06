@@ -5,6 +5,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import {api} from "../../api/api";
 import { ReviewPopUp } from "../../components/ReviewPopUp";
+import { data } from "autoprefixer";
 
 
 export function Game() {
@@ -14,42 +15,64 @@ export function Game() {
   const [game, setGame] = useState({});
   const [screenShotView, setScreen] = useState([]);
   const [reviewShow, setReview] = useState([]);
-  const [users, setUsers] = useState([]);
-  const [usersReviewId, setURI] = useState([]);
-  let hiddenDelete=true;
+  const [ownerReview, setOwnerReview] = useState([]);
+  const [allReviews,setAllReviews] = useState ({});
+
+  let hiddenDelete=false;
 
   useEffect(() => {
     async function fetchGame() {
       try {
-        const response = await api.get(`/${id}`);
-        setGame(response.data);
-        //console.log(game);
-      } catch (err) {
+        const response = await api.get(`/game/${id}`);
+        setGame(response.data.game);
+        setAllReviews(response.data.reviewsPop);
+        //console.log("asasasasasasasasasadedede", response.data.reviewsPop, allReviews)
+        } catch (err) {
         console.log(err);
       }
     }
     fetchGame();
   }, [id]);
 
-  useEffect(()=> {
-    async function fetchPlayers() {
-      try {
-        const response = await api.get(`/review/${id}`);
-        setUsers(response.data);
-
-        console.log("gaygayagygaaygagygayg", response.data);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    fetchPlayers();
-  }, [])
+  // useEffect(()=> {
+  //   async function fetchReviews() {
+  //     try {
+  //       const response = await api.get(`/review/reviews`);
+  //       console.log("All reviewssdsdsdsdsdsdsdsdsd", response.data);
+  //       setAllReviews(response);
+        
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   }
+  //   fetchReviews();
+  // }, [])
 
   useEffect(() => {
-        //console.log(game)
+        // let avatarOwner=[];
+        // let array2={};
+        // let nameOwner=allReviews.forEach((curr)=>{
+        //   console.log(curr)
+        //   return ;
+        // })
+
+        let array = Object.keys(allReviews)
+        .map(function(key) {
+            return allReviews[key] });
+        
+        let ownerReview=array.map((cur)=>{
+            return cur.owner.name
+        })
+
+
+
+        //console.log("asdsdsadsadasdsadasdasdsad",array2,ownerReview, reviewShow)
         setScreen(game.screenShots);
         setReview(game.reviews);
-        console.log(game.reviews);
+        setOwnerReview(ownerReview);
+        console.log(ownerReview)
+
+        
         }, [game]);
 
 // useEffect(()=> {
@@ -63,7 +86,7 @@ export function Game() {
 
 
   async function handleReview () {
-    console.log(triggingReview);
+    //console.log(triggingReview);
     if (!triggingReview) {setTrigging(true)} 
   }
 
@@ -110,7 +133,7 @@ return (
                   <>
                     <div>
                       <div>
-                        {/* <label>Owner: {users.filter((curr)=>{if(curr.reviews===current._id){return {curr}}})}</label> */}
+                        <label>Owner: {ownerReview[reviewShow.indexOf(current)]} </label>
                       </div>
                       <div>
                         <label>Graphics: {current.rates.graphics}</label>
@@ -123,6 +146,7 @@ return (
                       </div>
                       <div>
                           <button type="button">🍪</button>
+                          <button type="edit">🤢 Edit</button>
                       </div>
                   </>
                 );
