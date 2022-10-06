@@ -1,12 +1,6 @@
 import { Link } from "react-router-dom";
 import style from "./style.module.css"
 import logoBk from "../../images/GameTastingLOGO-BK.png"
-<<<<<<< HEAD
-import { useState } from "react";
-
-export function Navbar() {
-
-=======
 import { AuthContext } from "../../contexts/authContext.js"
 import { useContext } from "react"
 
@@ -21,8 +15,7 @@ export function Navbar() {
     userFirstName = String(userName).split(' ')[0]
   }
 
->>>>>>> 17ecb759270b4c99e2cb4a2b265552aaf5738fc4
-  return (
+return (
     <nav className="nav">
       <div className={style.navContent}>
         <Link to={"/"}>

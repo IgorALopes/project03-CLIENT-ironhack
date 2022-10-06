@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-<<<<<<< HEAD
 import {api} from "../../api/api";
 import { ReviewPopUp } from "../../components/ReviewPopUp";
 
@@ -15,31 +14,16 @@ export function Game() {
   const [game, setGame] = useState({});
   const [screenShotView, setScreen] = useState([]);
   const [reviewShow, setReview] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [usersReviewId, setURI] = useState([]);
   let hiddenDelete=true;
 
-=======
-import { api } from "../../api/api";
-
-export function Game() {
-  const { id } = useParams();
-  const [game, setGame] = useState({});
-  const [screenShotView, setScreen] = useState([]);
-  let hiddenDelete = true;
-
-  // useEffect(()=>{
-
-  // }, [game]);
-  // useEffect(()=>{
-
-  // }, []);
-
->>>>>>> 17ecb759270b4c99e2cb4a2b265552aaf5738fc4
   useEffect(() => {
     async function fetchGame() {
       try {
         const response = await api.get(`/game/${id}`);
         setGame(response.data);
-        console.log(game);
+        //console.log(game);
       } catch (err) {
         console.log(err);
       }
@@ -47,13 +31,36 @@ export function Game() {
     fetchGame();
   }, [id]);
 
+  useEffect(()=> {
+    async function fetchPlayers() {
+      try {
+        const response = await api.get(`/review/${id}`);
+        setUsers(response.data);
+
+        console.log("gaygayagygaaygagygayg", response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchPlayers();
+  }, [])
+
   useEffect(() => {
-<<<<<<< HEAD
         //console.log(game)
         setScreen(game.screenShots);
         setReview(game.reviews);
-        console.log(screenShotView);
+        console.log(game.reviews);
         }, [game]);
+
+// useEffect(()=> {
+//     function URI() {
+      
+//     }
+//     fetchPlayers();
+//   }, [])
+
+
+
 
   async function handleReview () {
     console.log(triggingReview);
@@ -61,17 +68,7 @@ export function Game() {
   }
 
 return (<>
-
     <div>
-=======
-    //console.log(game)
-    setScreen(game.screenShots);
-    console.log(screenShotView);
-  }, [game]);
-
-  return (
-    <>
->>>>>>> 17ecb759270b4c99e2cb4a2b265552aaf5738fc4
       <div>
         <div>
           <h1 className={style.sSV}>Screenshots</h1>
@@ -95,44 +92,45 @@ return (<>
             <img src={game.gameLogo} width="40px" alt="img"></img>
             <h1>{game.title}</h1>
             <button type="button">Play</button>
-<<<<<<< HEAD
             <button type="button" onClick={handleReview}>Review</button>
             <button type="button" hidden={hiddenDelete}>Delete</button>
         </div>
         <div>
-=======
-            <button type="button">Review</button>
-            <button type="button" hidden={hiddenDelete}>
-              Delete
-            </button>
-          </div>
-          <div>
->>>>>>> 17ecb759270b4c99e2cb4a2b265552aaf5738fc4
             <h2>{game.description}</h2>
           </div>
         </div>
-<<<<<<< HEAD
         <div className={style.review}>
-        <ReviewPopUp trigger={triggingReview}/>
+        <ReviewPopUp trigger={triggingReview} setTrigging={setTrigging} id={id}/>
         </div>
-
-
-
-
+        <div>
+        {reviewShow ? (
+              reviewShow.map((current) => {
+                return (
+                  <>
+                    <div>
+                      <div>
+                        {/* <label>Owner: {users.filter((curr)=>{if(curr.reviews===current._id){return {curr}}})}</label> */}
+                      </div>
+                      <div>
+                        <label>Graphics: {current.rates.graphics}</label>
+                        <label>Sound Effects: {current.rates.soundEffects}</label>
+                        <label>Gameplay: {current.rates.playability}</label>
+                        <label>Fun: {current.rates.fun}</label>
+                        <label>Replayability: {current.rates.replayability}</label>
+                      </div>
+                        <label>{current.userEvaluation}</label>
+                      </div>
+                      <div>
+                          <button type="button">🍪</button>
+                      </div>
+                  </>
+                );
+              })
+            ) : (
+              <></>
+            )}
+        </div>
     </div>  
-      
-    
-    
-    
-    
-    </div>    
-  
-  
-  
+  </div>    
   </>);
-=======
-      </div>
-    </>
-  );
->>>>>>> 17ecb759270b4c99e2cb4a2b265552aaf5738fc4
 }
