@@ -1,0 +1,48 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto;
+  gap: 30px;
+}
+
+.linkAnima {
+  position: relative;
+  height: 30px;
+}
+
+.linkAnima:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #353535;
+  transform-origin: bottom center;
+  transition: transform 0.25s ease-out;
+}
+
+.linkAnima:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom center;
+}
+
+.repositoryLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.creatorsInfos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.creator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
