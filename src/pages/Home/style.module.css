@@ -35,16 +35,17 @@
 }
 
 .gamesMenu {
+    padding: 0vw 10vw;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.gamesMenu h2 {
+.gamesMenuTitle {
     height: 120px;
     font-family: var(--global-font-family);
-    font-size: 5em;
+    font-size: 4.5em;
     text-align: center;
 }
 
@@ -54,7 +55,7 @@
 
 .gameCards {
     width: 100%;
-    padding: 0px 10vw 50px 10vw;
+    padding: 0px 10vw 80px 10vw;
     display: flex;
     justify-content: center;
     align-items: center;

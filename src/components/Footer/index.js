@@ -1,10 +1,11 @@
 import logo from "../../images/GameTastingLOGO-BK.png";
 import { FooterSearchBar } from "../FooterSearchBar";
+import style from "./style.module.css"
 
 export function Footer() {
   return (
-    <footer className="">
-      <span className="">
+    <footer className={style.footer}>
+      <span className={style.copyRigths}>
         © 2022 Created by:{" "}
         <a
           href="https://www.linkedin.com/in/igor-lopes-83232ba9/"
@@ -12,7 +13,7 @@ export function Footer() {
           target="_blank"
           rel="noreferrer"
         >
-          Igor Lopes
+          <strong>Igor Lopes</strong>
         </a>{" "}
         ,{" "}
         <a
@@ -21,7 +22,7 @@ export function Footer() {
           target="_blank"
           rel="noreferrer"
         >
-          Maxwell Paulo{" "}
+          <strong>Maxwell Paulo</strong>{" "}
         </a>
         and{" "}
         <a
@@ -30,27 +31,28 @@ export function Footer() {
           target="_blank"
           rel="noreferrer"
         >
-          Roger Hainz
+          <strong>Roger Hainz</strong>
         </a>
         . All Rights Reserved.
       </span>
-      <div className="">
+      <div className={style.searchAndLogo}>
         <img
           className=""
-          style={{ width: "50px" }}
+          style={{ width: "100px" }}
           src={logo}
           alt="Game Tasting logo"
+          href="/"
         />
-        <FooterSearchBar className="" />
+        <FooterSearchBar/>
       </div>
-      <ul className="">
+      <ul className={style.siteMapLinks}>
         <li>
-          <a href="/about-us" className="">
+          <a href="/about-us">
             About
           </a>
         </li>
         <li>
-          <a href="/" className="">
+          <a href="/">
             Home
           </a>
         </li>

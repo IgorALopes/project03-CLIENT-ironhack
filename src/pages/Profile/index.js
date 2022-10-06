@@ -1,19 +1,11 @@
-import { useEffect, useState, useContext } from "react";
-import { api } from "../../api/api";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext";
+import style from "./style.module.css"
 
 export function Profile() {
-  // const [user, setUser] = useState({ name: "", email: "" });
-  const navigate = useNavigate();
-  // useEffect(() => {
-  //   async function fetchUser() {
-  //     const response = await api.get("/user/profile");
-  //     setUser(response.data);
-  //   }
 
-  //   fetchUser();
-  // }, []);
+  const navigate = useNavigate();
 
   const { loggedInUser } = useContext(AuthContext);
 
@@ -23,11 +15,30 @@ export function Profile() {
     navigate(0)
   }
 
+  function handleEditProfile() {
+    navigate("/");
+  }
+
+  function handleCreateGame() {
+    navigate("/profile/create-game");
+  }
+
   return (
     <>
-      <h1>{loggedInUser.user.name}</h1>
-      <p>{loggedInUser.user.email}</p>
-      <button onClick={handleLogOut}>Sair</button>
+      <div className={style.userProfile}>
+        <h1 className={style.profileTitle}>Taster Profile</h1>
+        <div className={style.userAvatarName}>
+          <img src={loggedInUser.user.avatar} className={style.userAvatar} alt="user avatar"/>
+          <h1 >{loggedInUser.user.name}</h1>
+        </div>
+        <p>{loggedInUser.user.birthDate}</p>
+        <p>{loggedInUser.user.email}</p>
+        <button onClick={handleCreateGame}>Display a new Game</button>
+        <div className={style.Buttons}>
+          <button onClick={handleLogOut}>Logout</button>
+          <button onClick={handleEditProfile}>Edit</button>
+        </div>
+      </div>
     </>
   );
 }
