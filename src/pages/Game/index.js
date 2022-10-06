@@ -14,7 +14,7 @@ export function Game() {
   const [game, setGame] = useState({});
   const [screenShotView, setScreen] = useState([]);
   const [reviewShow, setReview] = useState([]);
-  const [users, setUsers] = useState([]);
+  const [allReviews, setAllReviews] = useState([]);
   const [usersReviewId, setURI] = useState([]);
   let hiddenDelete=true;
 
@@ -23,7 +23,7 @@ export function Game() {
       try {
         const response = await api.get(`/game/${id}`);
         setGame(response.data);
-        //console.log(game);
+        console.log("dados do jogo", game);
       } catch (err) {
         console.log(err);
       }
@@ -32,24 +32,24 @@ export function Game() {
   }, [id]);
 
   useEffect(()=> {
-    async function fetchPlayers() {
+    async function fetchReviews() {
       try {
-        const response = await api.get(`/review/${id}`);
-        setUsers(response.data);
-
-        console.log("gaygayagygaaygagygayg", response.data);
+        const response = await api.get(`/review/reviews`);
+        console.log("All reviewssdsdsdsdsdsdsdsdsd", response.data);
+        setAllReviews(response);
+        
       } catch (err) {
         console.log(err);
       }
     }
-    fetchPlayers();
+    fetchReviews();
   }, [])
 
   useEffect(() => {
         //console.log(game)
         setScreen(game.screenShots);
         setReview(game.reviews);
-        console.log(game.reviews);
+        //console.log(game.reviews);
         }, [game]);
 
 // useEffect(()=> {
