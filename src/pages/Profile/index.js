@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { api } from "../../api/api";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext";
+import { Navbar } from "../../components/Navbar";
 
 export function Profile() {
   // const [user, setUser] = useState({ name: "", email: "" });
@@ -20,6 +21,7 @@ export function Profile() {
   function handleLogOut() {
     localStorage.removeItem("loggedInUser");
     navigate("/");
+    navigate(0)
   }
 
   return (

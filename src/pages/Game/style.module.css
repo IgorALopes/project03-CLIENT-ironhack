@@ -5,3 +5,11 @@
     flex-wrap: wrap;
     margin-bottom: 50px;
 }
+
+.review {
+    display: flex;
+    border: 1px solid greenyellow;
+    width:800px;
+
+}
+
