@@ -1,6 +1,6 @@
 import logo from "../../images/GameTastingLOGO-BK.png";
 import { FooterSearchBar } from "../FooterSearchBar";
-import style from "./style.module.css"
+import style from "./style.module.css";
 
 export function Footer() {
   return (
@@ -43,18 +43,14 @@ export function Footer() {
           alt="Game Tasting logo"
           href="/"
         />
-        <FooterSearchBar/>
+        <FooterSearchBar />
       </div>
       <ul className={style.siteMapLinks}>
         <li>
-          <a href="/about-us">
-            About
-          </a>
+          <a href="/about-us">About</a>
         </li>
         <li>
-          <a href="/">
-            Home
-          </a>
+          <a href="/">Home</a>
         </li>
       </ul>
     </footer>
