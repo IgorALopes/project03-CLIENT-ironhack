@@ -68,6 +68,7 @@ export function SearchBar() {
   return (
     <div className={style.searchBar}>
       <Select
+        className={style.select}
         options={options}
         onChange={handleSelect}
         styles={colourStyles}

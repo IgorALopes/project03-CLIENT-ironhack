@@ -25,3 +25,7 @@
   transform: scaleX(1);
   transform-origin: bottom center;
 }
+
+.select {
+  width: 60vw;
+}
