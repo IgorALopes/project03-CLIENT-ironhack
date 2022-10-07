@@ -2,19 +2,20 @@ import { useContext, useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext";
 import axios from "axios";
+import { api } from "../../api/api"
 import style from "./style.module.css"
 import { Card } from "../../components/GameCard";
 
 export function Profile() {
 
   const [cards, setCards] = useState([]);
-  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
     async function fetchCards() {
       try {
-        const response = await axios.get(
-          "http://localhost:4000/api/1.0/game/games"
+        const response = await api.get(
+          "/game/games"
         );
         
         setCards([...response.data]);
@@ -26,18 +27,20 @@ export function Profile() {
   }, []);
 
   useEffect(() => {
-    async function fetchUsers() {
+    async function fetchUser() {
       try {
-        const response = await axios.get(
-          "http://localhost:4000/api/1.0/user/users"
+        const response = await api.get(
+          "/user/profile"
         );
+        console.log(response.data)
         
-        setUsers([...response.data]);
+        setUser([...response.data]);
+        console.log(user.review[0].rates)
       } catch (err) {
         console.log(err);
       }
     }
-    fetchUsers();
+    fetchUser();
   }, []);
 
 
@@ -84,7 +87,7 @@ export function Profile() {
                   if (loggedInUser.user._id === currentCard.owner._id) {
                   return (
                     <>
-                      <Link to={`/game/${currentCard._id}`}>
+                      <Link to={`/${currentCard._id}`}>
                         <Card
                           title={currentCard.title}
                           gameLogo={currentCard.gameLogo}
@@ -100,7 +103,7 @@ export function Profile() {
           <div className={style.reviewsMade}>
             <h2 className={style.subTitles}>Reviews you made</h2>
             <div className={style.cardsContainer}>
-              {users
+              {user
                 .slice(0)
                 .reverse()
                 .map((currentUser) => {
