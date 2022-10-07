@@ -32,6 +32,11 @@ export function ReviewPopUp(props) {
     return console.log("oi");
   }
 
+  async function handleCancel() {
+    navigate(0);
+    props.setTrigging(false);
+  }
+
   return props.trigger ? (
     <>
       <div className={style.container}>
@@ -118,9 +123,18 @@ export function ReviewPopUp(props) {
                       placeholder="review"
                     />
                   </div>
-                  <button type="submit" className={style.button}>
-                    <spam className={style.anima}>CREATE Review</spam>
-                  </button>
+                  <div className={style.buttonsBlock}>
+                    <button type="submit" className={style.button}>
+                      <spam className={style.anima}>CREATE REVIEW</spam>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleCancel}
+                      className={style.button}
+                    >
+                      <spam className={style.anima}>CANCEL</spam>
+                    </button>
+                  </div>
                 </div>
               </Form>
             )}
