@@ -1,49 +1,35 @@
 import { useContext, useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext";
 import axios from "axios";
 import style from "./style.module.css"
 import { Card } from "../../components/GameCard";
+import {api} from "../../api/api";
+import { ReviewsShow } from "../../components/ReviewsShow";
 
 export function Profile() {
 
+  const { loggedInUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { id } = useParams();
   const [cards, setCards] = useState([]);
-  const [users, setUsers] = useState([]);
-
+  const [user1, setUser1] = useState({});
+  const [userBefore,setBefore] = useState({});
+  const [reviewsExibit,setRExibit] = useState ([]);
+  
   useEffect(() => {
     async function fetchCards() {
       try {
-        const response = await axios.get(
-          "http://localhost:4000/api/1.0/game/games"
-        );
+        const response = await api.get("/game/games");
         
         setCards([...response.data]);
+        console.log(cards)
       } catch (err) {
         console.log(err);
       }
     }
     fetchCards();
   }, []);
-
-  useEffect(() => {
-    async function fetchUsers() {
-      try {
-        const response = await axios.get(
-          "http://localhost:4000/api/1.0/user/users"
-        );
-        
-        setUsers([...response.data]);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    fetchUsers();
-  }, []);
-
-
-  const navigate = useNavigate();
-
-  const { loggedInUser } = useContext(AuthContext);
 
   function handleLogOut() {
     localStorage.removeItem("loggedInUser");
@@ -64,9 +50,9 @@ export function Profile() {
       <div className={style.userProfilePage}>
         <div className={style.userProfile}>
           <h1 className={style.profileTitle}>Taster Profile</h1>
-          <div className={style.userPersonalInfo}>
+          <div className={style.userPersonalInfo}> 
             <div className={style.userAvatarName}>
-              <img src={loggedInUser.user.avatar} className={style.userAvatar} alt="user avatar"/>
+              <img src={user1.avatar} className={style.userAvatar} alt="user avatar"/>
               <h1>{loggedInUser.user.name}</h1>
             </div>
             <p>Birth date: {loggedInUser.user.birthDate}</p>
@@ -100,21 +86,7 @@ export function Profile() {
           <div className={style.reviewsMade}>
             <h2 className={style.subTitles}>Reviews you made</h2>
             <div className={style.cardsContainer}>
-              {users
-                .slice(0)
-                .reverse()
-                .map((currentUser) => {
-                  if (loggedInUser.user._id === currentUser.owner._id) {
-                  return (
-                    <>
-                      <Link to={`/`}>
-                        <div className={style.reviewsRow}>
-                          <p>{currentUser.name}</p>
-                        </div>
-                      </Link>
-                    </>
-                  )}
-                })}
+              <ReviewsShow />                
             </div>
           </div>
           <button className={style.buttons} onClick={handleLogOut}>Logout</button>
