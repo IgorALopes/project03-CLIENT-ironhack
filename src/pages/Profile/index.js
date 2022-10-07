@@ -41,7 +41,7 @@ export function Profile() {
             setBefore(response.data);
             setRevShow(response.data.reviews);
             console.log(response.data);
-            console.log(userBefore, "haha");           
+            console.log("huhauhauhuhauauhauhahauauhauauhauauhauhau", userBefore);           
             } catch (err) {
             console.log(err);
         }
@@ -92,7 +92,7 @@ useEffect(()=>{
   }
 
   function handleEditProfile() {
-    navigate("/");
+    navigate(`/edit-profile/${id}`);
   }
 
   function handleCreateGame() {
@@ -113,7 +113,6 @@ useEffect(()=>{
               />
               <h1>{loggedInUser.user.name}</h1>
             </div>
-            <p>Birth date: {loggedInUser.user.birthDate}</p>
             <p>Email: {loggedInUser.user.email}</p>
             <button className={style.buttons} onClick={handleEditProfile}>
               Edit
