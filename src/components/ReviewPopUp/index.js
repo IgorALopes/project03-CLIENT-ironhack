@@ -102,7 +102,7 @@ export function ReviewPopUp(props) {
 
 
 
-            <h1> Popeiezinho </h1>
+            
         </div>
     
     </>) : <></>
