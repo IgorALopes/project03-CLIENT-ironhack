@@ -5,7 +5,6 @@ import axios from "axios";
 import { api } from "../../api/api"
 import style from "./style.module.css"
 import { Card } from "../../components/GameCard";
-import {api} from "../../api/api";
 import { ReviewsShow } from "../../components/ReviewsShow";
 
 export function Profile() {
