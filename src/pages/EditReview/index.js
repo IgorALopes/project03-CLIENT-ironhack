@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../../api/api";
 import style from "./style.module.css";
+import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 
 export function EditReview() {
@@ -58,6 +59,40 @@ export function EditReview() {
       navigate(`/${response.data.game}`);
 
       console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  function handleToast() {
+    toast((t) => (
+      <span>
+        Would you like to <b>delete</b> this review?
+        <div className={style.toastBtns}>
+          <button
+            className={style.toastDelBtn}
+            onClick={() => {
+              handleDelete(t);
+            }}
+          >
+            delete
+          </button>
+          <button
+            className={style.toastNoBtn}
+            onClick={() => toast.dismiss(t.id)}
+          >
+            No
+          </button>
+        </div>
+      </span>
+    ));
+  }
+
+  async function handleDelete(t) {
+    try {
+      await api.delete(`review/${id}`);
+      toast.dismiss(t.id);
+      navigate("/profile");
     } catch (err) {
       console.log(err);
     }
@@ -177,6 +212,9 @@ export function EditReview() {
             Atualizar
           </button>
         </form>
+        <button className={style.deleteBtn} type="button" onClick={handleToast}>
+          Delete
+        </button>
       </section>
     </main>
   );

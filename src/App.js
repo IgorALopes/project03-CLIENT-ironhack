@@ -12,11 +12,13 @@ import { AboutUs } from "./pages/AboutUs";
 import { CreateGame } from "./pages/CreateGame";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { EditReview } from "./pages/EditReview";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <>
       <AuthContextComponent>
+        <Toaster position="top-center" reverseOrder={false} />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
