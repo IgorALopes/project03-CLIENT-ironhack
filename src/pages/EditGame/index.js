@@ -136,14 +136,13 @@ export function EditGame() {
   }
 
   return (
-    <main>
-      <section>
-        <h1>Editar Game</h1>
-
-        <form onSubmit={handleSubmit}>
-          <label>title</label>
+    <main className={style.pageContainer}>
+      <section className={style.pageInfo}>
+        <h1 className={style.pageTitle}>Edit Game</h1>
+        <form className={style.mainForm} onSubmit={handleSubmit}>
+          <label>Title</label>
           <input
-            className={style.inputs}
+            className={style.input}
             id="title"
             name="title"
             type="text"
@@ -151,13 +150,13 @@ export function EditGame() {
             onChange={handleChange}
           />
 
-          <label>genge</label>
+          <label>Genre</label>
           <input
-            className={style.inputs}
-            id="genge"
-            name="genge"
+            className={style.input}
+            id="type"
+            name="type"
             type="text"
-            value={form.genge}
+            value={form.type}
             onChange={handleChange}
           />
 
@@ -180,9 +179,9 @@ export function EditGame() {
             <option value="Adults Only 18+">Adults Only 18+</option>
           </select>
 
-          <label htmlFor="linkDeploy">Deploy's link:</label>
+          <label htmlFor="linkDeploy">Deploy's link</label>
           <input
-            className={style.inputs}
+            className={style.input}
             id="linkDeploy"
             name="linkDeploy"
             type="text"
@@ -190,9 +189,9 @@ export function EditGame() {
             onChange={handleChange}
           />
 
-          <label htmlFor="linkRepo ">Repository's link:</label>
+          <label htmlFor="linkRepo ">Repository's link</label>
           <input
-            className={style.inputs}
+            className={style.input}
             id="linkRepo"
             name="linkRepo"
             type="text"
@@ -200,9 +199,9 @@ export function EditGame() {
             onChange={handleChange}
           />
 
-          <label htmlFor="description ">Description: link:</label>
-          <input
-            className={style.inputs}
+          <label htmlFor="description ">Description</label>
+          <textarea
+            className={style.inputTextArea}
             id="description"
             name="description"
             type="text"
@@ -210,9 +209,8 @@ export function EditGame() {
             onChange={handleChange}
           />
 
-          <label htmlFor="gameLogo">Game logo:</label>
+          <label htmlFor="gameLogo">Game logo</label>
           <input
-            className={style.inputs}
             id="gameLogo"
             name="gameLogo"
             type="file"
@@ -223,16 +221,18 @@ export function EditGame() {
           {/* <img src={baseForm.game.gameLogo} alt="img" width="40px" /> */}
 
           <div>
-            <form>
-              <label htmlFor="screenshots">Screenshot:</label>
-              <input type="file" id="screenshots" onChange={handleImg2} />
-              <button type="button" onClick={handleUpload2}>
-                Adicionar
-              </button>
+            <form className={style.mainForm}>
+              <div className={style.ScreenShotForm}>
+                <label htmlFor="screenshots">Screenshot </label>
+                <input type="file" id="screenshots" onChange={handleImg2} />
+                <button className={style.buttonAnima} type="button" onClick={handleUpload2}>
+                  + Add
+                </button>
+              </div>
             </form>
           </div>
-          <div>
-            <label>All Images</label>
+          <div className={style.allImages}>
+            <label>Screenshots</label>
             {screenShotShow.map((current) => {
               return (
                 <>
@@ -244,14 +244,15 @@ export function EditGame() {
               );
             })}
           </div>
-
-          <button className={style.atualizarBtn} type="submit">
-            Atualizar
-          </button>
         </form>
-        <button className={style.deleteBtn} type="button" onClick={handleToast}>
-          Delete
-        </button>
+        <div className={style.bottomButtons}>
+          <button className={style.buttonAnima} type="submit">
+            Update
+          </button>
+          <button className={style.buttonAnima} type="button" onClick={handleToast}>
+            Delete
+          </button>
+        </div>
       </section>
     </main>
   );
