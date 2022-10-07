@@ -70,7 +70,7 @@ export function Profile() {
                   if (loggedInUser.user._id === currentCard.owner._id) {
                   return (
                     <>
-                      <Link to={`/game/${currentCard._id}`}>
+                      <Link to={`/${currentCard._id}`}>
                         <Card
                           title={currentCard.title}
                           gameLogo={currentCard.gameLogo}
