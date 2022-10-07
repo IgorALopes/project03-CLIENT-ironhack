@@ -122,24 +122,45 @@ export function CreateGame() {
                     <div className={style.formField}>
                       <p>Entertainment Software Rating Board: </p>
                       <div className={style.esrb}>
-                        <Field name="esrb" type="radio" value="Everyone" />
-                        <label>Everyone</label>
+                        <label>Everyone:</label>
+                        <Field
+                          name="esrb"
+                          type="radio"
+                          value="Everyone"
+                          className={style.radio}
+                        />
 
-                        <Field name="esrb" type="radio" value="Everyone 10+" />
-                        <label>Everyone 10+</label>
+                        <label>Everyone 10+:</label>
+                        <Field
+                          name="esrb"
+                          type="radio"
+                          value="Everyone 10+"
+                          className={style.radio}
+                        />
 
-                        <Field name="esrb" type="radio" value="Teen 13+" />
-                        <label>Teen 13+</label>
+                        <label>Teen 13+:</label>
+                        <Field
+                          name="esrb"
+                          type="radio"
+                          value="Teen 13+"
+                          className={style.radio}
+                        />
 
-                        <Field name="esrb" type="radio" value="Mature 17+" />
-                        <label>Mature 17+</label>
+                        <label>Mature 17+:</label>
+                        <Field
+                          name="esrb"
+                          type="radio"
+                          value="Mature 17+"
+                          className={style.radio}
+                        />
 
+                        <label>Adults Only 18+:</label>
                         <Field
                           name="esrb"
                           type="radio"
                           value="Adults Only 18+"
+                          className={style.radio}
                         />
-                        <label>Adults Only 18+</label>
                       </div>
                     </div>
                   </div>
@@ -222,7 +243,6 @@ export function CreateGame() {
                       return (
                         <>
                           <div>
-                            <p>{current}</p>
                             <img
                               src={current}
                               width="80px"
