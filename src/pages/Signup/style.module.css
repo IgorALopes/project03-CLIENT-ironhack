@@ -1,29 +1,65 @@
-* {
-    margin:0
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.main {
-    border:1px solid red;
-    max-width: 800px;
-    display: flex;
-    flex-direction: column;
+.h1 {
+  height: 120px;
+  font-family: var(--global-font-family);
+  font-size: 4.5em;
+  text-align: center;
 }
 
-.ihl {
-    border: 1px solid yellow;
-    align-items: center;
-    width:800px;
-    max-width: 800px;
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
 }
 
-.formikeiro {
-    flex-direction: row;
-    width:800px;
-    max-width: 800px;
-    align-items: flex-end;
-    border: 1px solid green;
+.formField {
+  display: flex;
+  gap: 20px;
 }
 
-.formFields {
-    border: 1px solid goldenrod
+.formBlock {
+  display: flex;
+  gap: 20px;
+}
+
+.button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  margin-bottom: 50px;
+}
+
+.anima {
+  position: relative;
+  height: 30px;
+}
+
+.anima:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #353535;
+  transform-origin: bottom center;
+  transition: transform 0.25s ease-out;
+}
+
+.anima:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom center;
 }
