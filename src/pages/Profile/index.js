@@ -17,20 +17,38 @@ export function Profile() {
   const [user1, setUser1] = useState({});
   const [userBefore, setBefore] = useState({});
   const [reviewsExibit, setRExibit] = useState([]);
+  const [reviewsShow, setRevShow] = useState ([]);
 
   useEffect(() => {
     async function fetchCards() {
       try {
         const response = await api.get("/game/games");
-
         setCards([...response.data]);
-        console.log(cards);
-      } catch (err) {
+        } catch (err) {
         console.log(err);
       }
     }
     fetchCards();
   }, []);
+
+  useEffect(()=>{
+    async function userBefore2(){
+        try {
+            const response = await api.get(`/user/profile`);
+            setBefore(response.data);
+            console.log(response.data);
+            console.log(userBefore, "haha");           
+            } catch (err) {
+            console.log(err);
+        }
+    }
+    userBefore2();
+},[cards])
+
+useEffect(()=>{
+  setRevShow(userBefore.reviews)
+  console.log(reviewsShow)
+},[userBefore])
 
   function handleLogOut() {
     localStorage.removeItem("loggedInUser");
@@ -97,7 +115,7 @@ export function Profile() {
           <div className={style.reviewsMade}>
             <h2 className={style.subTitles}>Reviews you made</h2>
             <div className={style.cardsContainer}>
-              <ReviewsShow />
+              {/* <ReviewsShow /> */}
             </div>
           </div>
           <button className={style.buttons} onClick={handleLogOut}>
