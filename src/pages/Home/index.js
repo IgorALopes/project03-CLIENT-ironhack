@@ -1,7 +1,9 @@
 import style from "./style.module.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import { api } from "../../api/api";
+
 import { Card } from "../../components/GameCard";
 import { SearchBar } from "../../components/Searchbar";
 import graphImg from "../../images/GameTastingLOGO-geometric-BK.png";
@@ -12,6 +14,7 @@ export function Home() {
   useEffect(() => {
     async function fetchCards() {
       try {
+
         const response = await api.get("/game/games");
 
         setCards([...response.data]);

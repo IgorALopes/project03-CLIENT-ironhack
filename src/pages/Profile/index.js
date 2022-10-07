@@ -2,9 +2,11 @@ import { useContext, useState, useEffect } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext";
 import axios from "axios";
+
 import style from "./style.module.css";
 import { Card } from "../../components/GameCard";
 import { api } from "../../api/api";
+
 import { ReviewsShow } from "../../components/ReviewsShow";
 
 export function Profile() {
@@ -75,6 +77,7 @@ export function Profile() {
                 .reverse()
                 .map((currentCard) => {
                   if (loggedInUser.user._id === currentCard.owner._id) {
+
                     return (
                       <>
                         <Link to={`/${currentCard._id}`}>
@@ -86,6 +89,7 @@ export function Profile() {
                         </Link>
                       </>
                     );
+
                   }
                 })}
             </div>
