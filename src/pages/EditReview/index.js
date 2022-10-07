@@ -3,6 +3,7 @@ import { api } from "../../api/api";
 import style from "./style.module.css";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
+import graphImg from "../../images/GameTastingLOGO-geometric-BK.png";
 
 export function EditReview() {
   const navigate = useNavigate();
@@ -101,120 +102,155 @@ export function EditReview() {
   return (
     <main>
       <section>
-        <h1>Editar review</h1>
-        <form onSubmit={handleSubmit}>
-          <label>Rates:</label>
-          <label htlmfor="graphics">graphics:</label>
-          <select
-            id="graphics"
-            name="graphics"
-            type="number"
-            value={rates.graphics}
-            onChange={handleChangeRates}
-          >
-            <option hidden defaultValue>
-              Select
-            </option>
-            <option disabled>graphics</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-
-          <label htlmfor="soundEffects">soundEffects:</label>
-          <select
-            id="soundEffects"
-            name="soundEffects"
-            type="number"
-            value={rates.soundEffects}
-            onChange={handleChangeRates}
-          >
-            <option hidden defaultValue>
-              Select
-            </option>
-            <option disabled>soundEffects</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-
-          <label htlmfor="playability">Game play:</label>
-          <select
-            id="playability"
-            name="playability"
-            type="number"
-            value={rates.playability}
-            onChange={handleChangeRates}
-          >
-            <option hidden defaultValue>
-              Select
-            </option>
-            <option disabled>Game play</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-
-          <label htlmfor="fun">fun:</label>
-          <select
-            id="fun"
-            name="fun"
-            type="number"
-            value={rates.fun}
-            onChange={handleChangeRates}
-          >
-            <option hidden defaultValue>
-              Select
-            </option>
-            <option disabled>fun</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-
-          <label htlmfor="replayability">replayability:</label>
-          <select
-            id="replayability"
-            name="replayability"
-            type="number"
-            value={rates.replayability}
-            onChange={handleChangeRates}
-          >
-            <option hidden defaultValue>
-              Select
-            </option>
-            <option disabled>replayability</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-
-          <label htmlFor="userEvaluation">Comente:</label>
-          <input
-            className={style.inputs}
-            id="userEvaluation"
-            name="userEvaluation"
-            type="text"
-            value={rates.userEvaluation}
-            onChange={handleChangeRates}
+        <div className={style.container}>
+          <img
+            style={{ width: "15px" }}
+            src={graphImg}
+            alt="Graphism"
+            className={style.img}
           />
-          <button className={style.atualizarBtn} type="submit">
-            Atualizar
-          </button>
-        </form>
-        <button className={style.deleteBtn} type="button" onClick={handleToast}>
-          Delete
-        </button>
+
+          <h1 className={style.h1}>Edit review</h1>
+
+          <img
+            style={{ width: "15px" }}
+            src={graphImg}
+            alt="Graphism"
+            className={style.img}
+          />
+
+          <form onSubmit={handleSubmit} className={style.form}>
+            <label>Rates</label>
+            <div className={style.formBlock}>
+              <div className={style.formField}>
+                <label htlmfor="graphics">graphics:</label>
+                <select
+                  id="graphics"
+                  name="graphics"
+                  type="number"
+                  value={rates.graphics}
+                  onChange={handleChangeRates}
+                >
+                  <option hidden defaultValue>
+                    Select
+                  </option>
+                  <option disabled>graphics</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+              <div className={style.formField}>
+                <label htlmfor="soundEffects">soundEffects:</label>
+                <select
+                  id="soundEffects"
+                  name="soundEffects"
+                  type="number"
+                  value={rates.soundEffects}
+                  onChange={handleChangeRates}
+                >
+                  <option hidden defaultValue>
+                    Select
+                  </option>
+                  <option disabled>soundEffects</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+              <div className={style.formField}>
+                <label htlmfor="playability">Game play:</label>
+                <select
+                  id="playability"
+                  name="playability"
+                  type="number"
+                  value={rates.playability}
+                  onChange={handleChangeRates}
+                >
+                  <option hidden defaultValue>
+                    Select
+                  </option>
+                  <option disabled>Game play</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+              <div className={style.formField}>
+                <label htlmfor="fun">fun:</label>
+                <select
+                  id="fun"
+                  name="fun"
+                  type="number"
+                  value={rates.fun}
+                  onChange={handleChangeRates}
+                >
+                  <option hidden defaultValue>
+                    Select
+                  </option>
+                  <option disabled>fun</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+              <div className={style.formField}>
+                <label htlmfor="replayability">replayability:</label>
+                <select
+                  id="replayability"
+                  name="replayability"
+                  type="number"
+                  value={rates.replayability}
+                  onChange={handleChangeRates}
+                >
+                  <option hidden defaultValue>
+                    Select
+                  </option>
+                  <option disabled>replayability</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+            </div>
+
+            <div className={style.formField}>
+              <label htmlFor="userEvaluation">Review: </label>
+              <textarea
+                className={style.inputs}
+                id="userEvaluation"
+                name="userEvaluation"
+                type="text"
+                value={rates.userEvaluation}
+                onChange={handleChangeRates}
+                style={{ width: "100%" }}
+              />
+            </div>
+
+            <div className={style.formBlock}>
+              <button className={style.button} type="submit">
+                <spam className={style.anima}>ATT REVIEW</spam>
+              </button>
+              <button
+                className={style.button}
+                type="button"
+                onClick={handleToast}
+              >
+                <spam className={style.anima}>DELETE REVIEW</spam>
+              </button>
+            </div>
+          </form>
+        </div>
       </section>
     </main>
   );
