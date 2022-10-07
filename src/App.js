@@ -13,6 +13,7 @@ import { CreateGame } from "./pages/CreateGame";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { EditReview } from "./pages/EditReview";
 import { Toaster } from "react-hot-toast";
+import { EditGame } from "./pages/EditGame";
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
             path="/edit-review/:id"
             element={<ProtectedRoute component={EditReview} />}
           />
+          <Route
+            path="/edit-game/:id"
+            element={<ProtectedRoute component={EditGame} />}
           />
         </Routes>
         <Footer />
