@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Formik, Field, Form } from "formik";
 import style from "./style.module.css";
 import toast from "react-hot-toast";
+import graphImg from "../../images/GameTastingLOGO-geometric-BK.png";
 
 export function EditProfile() {
   const navigate = useNavigate();
@@ -161,18 +162,24 @@ export function EditProfile() {
 
   return (
     <>
-      <div className={style.main}>
-        <div className={style.ihl}>
-          <img
-            src="https://www.frontierfireprotection.com/wp-content/uploads/freshizer/730cbf2e2455c64c961be8e18e793f6b_3-Things-a-Fire-Needs-2000-c-90.jpg"
-            alt="img"
-            width="200"
-          ></img>
-          <h1>Who are you ?</h1>
-          <label>Be a part of community</label>
-        </div>
+      <div className={style.container}>
+        <img
+          style={{ width: "15px" }}
+          src={graphImg}
+          alt="Graphism"
+          className={style.img}
+        />
 
-        <div className={style.formikeiro}>
+        <h1 className={style.h1}>Edit your profile</h1>
+
+        <img
+          style={{ width: "15px" }}
+          src={graphImg}
+          alt="Graphism"
+          className={style.img}
+        />
+
+        <div className={style.formik}>
           <Formik
             onSubmit={onSubmit}
             initialValues={{
@@ -184,43 +191,46 @@ export function EditProfile() {
             }}
             render={({ values }) => (
               <Form>
-                <div className="formFields">
-                  <label>Nome</label>
-                  <Field
-                    name="name"
-                    type="text"
-                    placeholder={userBefore.name}
-                  />
+                <div className={style.form}>
+                  <div className={style.formBlock}>
+                    <div className={style.formField}>
+                      <label>Name:</label>
+                      <Field
+                        name="name"
+                        type="text"
+                        placeholder={userBefore.name}
+                      />
+                    </div>
 
-                  <label>E-mail</label>
-                  <Field
-                    name="email"
-                    type="email"
-                    placeholder={userBefore.email}
-                  />
+                    <div className={style.formField}>
+                      <label>Email:</label>
+                      <Field
+                        name="email"
+                        type="email"
+                        placeholder={userBefore.email}
+                      />
+                    </div>
 
-                  <label>Birthdate: {dudinka} </label>
-                  <Field name="birthdate" type="date" />
-
-                  {/* <label>Password</label>
-                    <Field
-                        name="password"
-                        type="password"
-                        placeholder="password"
-                    /> */}
+                    <div className={style.formField}>
+                      <label>Birthdate: </label>
+                      <Field name="birthdate" type="date" />{" "}
+                    </div>
+                  </div>
+                  <button type="submit" className={style.button}>
+                    <spam className={style.anima}>EDIT PROFILE</spam>
+                  </button>
+                  <form>
+                    <img src={userBefore.avatar} alt="avatar" width="80px" />
+                    <label htmlFor="formImg">Profile Picture</label>
+                    <input type="file" id="formImg" onChange={handleImage} />
+                  </form>
+                  <button className={style.button} onClick={handleToast}>
+                    <spam className={style.anima}>DELETE PROFILE</spam>
+                  </button>
                 </div>
-                <button type="submit">botão</button>
               </Form>
             )}
           />
-          <form>
-            <img src={userBefore.avatar} alt="avatar" width="80px" />
-            <label htmlFor="formImg">Sua foto de perfil:</label>
-            <input type="file" id="formImg" onChange={handleImage} />
-          </form>
-          <button className={style.deleteBtn} onClick={handleToast}>
-            Delete Profile
-          </button>
         </div>
       </div>
     </>
