@@ -115,6 +115,9 @@ export function Game() {
               <button type="button" hidden={hiddenDelete}>
                 Delete
               </button>
+              <Link to={`/edit-game/${id}`}>
+                <button type="edit">🤢 Edit Game</button>
+              </Link>
             </div>
             <div>
               <h2>{game.description}</h2>
