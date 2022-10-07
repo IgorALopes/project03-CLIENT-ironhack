@@ -30,17 +30,93 @@
     margin-bottom: 30px;
 }
 
+.gameTop {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.gameHeader {
+    width: 100%;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.gameTitle {
+    font-size: 2em;
+}
+
+.gameLogo {
+    width: 100px;
+}
+
+.buttonAnima {
+    position: relative;
+    background-color: white;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.buttonAnima:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color:#353535;
+    transform-origin: bottom center;
+    transition: transform 0.25s ease-out;
+}
+
+.buttonAnima:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom center;
+}
 
 .gameSShots {
     display: flex;
     flex-direction: row;
-    align-content: space-around;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
+    gap: 10px;
     margin-bottom: 50px;
 }
 
-.review {
-    display: flex;
-    border: 1px solid greenyellow;
+.gameSShotImg {
+    max-width: 475px;
+    width: 100%;
 }
 
+.buttonsBotton {
+    margin: 50px 0px;
+}
+
+.reviewPopUp { 
+    display: flex;
+    gap: 5px;
+}
+
+.reviewsRows {
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: 1px solid #adadad;
+}
+
+.rates {
+    display: flex;
+    gap: 10px;
+}

@@ -47,10 +47,10 @@ export function Footer() {
       </div>
       <ul className={style.siteMapLinks}>
         <li>
-          <a href="/about-us">About</a>
+          <a className={style.buttonAnima} href="/about-us">About</a>
         </li>
         <li>
-          <a href="/">Home</a>
+          <a  className={style.buttonAnima} href="/">Home</a>
         </li>
       </ul>
     </footer>

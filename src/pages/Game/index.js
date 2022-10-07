@@ -88,6 +88,21 @@ export function Game() {
       <div className={style.pageContainer}>
         <div className={style.pageInfo}>
           <h1 className={style.pageTitle}>Game Plate</h1>
+          <div className={style.gameHeader}>
+            <img className={style.gameLogo} src={game.gameLogo} alt="game Logo"/>
+            <div>
+              <h2 className={style.gameTitle}>{game.title}</h2>
+              {/* <p style={{fontSize: "0.7em"}}>by {game.owner.name.split(' ')[0]} {game.owner.name.split(' ')[game.owner.name.split(' ').length - 1]}</p> */}
+              <div>
+                <a href={game.linkDeploy} target="_blank" rel="noreferrer"><button className={style.buttonAnima} type="button">Play</button></a>
+                <a href={game.linkRepo} target="_blank" rel="noreferrer"><button className={style.buttonAnima} type="button">Code</button></a>
+                <button className={style.buttonAnima} type="button" onClick={handleReview}>Review</button>
+                <Link to={`/edit-game/${id}`}>
+                  <button className={style.buttonAnima} type="edit">Edit Game</button>
+                </Link>
+              </div>
+            </div>
+          </div>
           <div className={style.gameInfo}>
             <div className={style.gameSShots}>
               {screenShotView ? (
@@ -95,8 +110,7 @@ export function Game() {
                   return (
                     <>
                       <div>
-                        <p></p>
-                        <img src={current} width="80px" alt="img"></img>
+                        <img className={style.gameSShotImg} src={current} alt="Screen Shot" />
                       </div>
                     </>
                   );
@@ -106,26 +120,18 @@ export function Game() {
               )}
             </div>
             <div>
-              <div className={style.gameSShots}>
-                <img src={game.gameLogo} width="40px" alt="img"></img>
-                <h1>{game.title}</h1>
-              </div>
-              <button type="button">Play</button>
-              <button type="button" onClick={handleReview}>
-                Review
-              </button>
-              <button type="button" hidden={hiddenDelete}>
-                Delete
-              </button>
-              <Link to={`/edit-game/${id}`}>
-                <button type="edit">🤢 Edit Game</button>
-              </Link>
-            </div>
-            <div>
-              <h2>{game.description}</h2>
+              <p>{game.description}</p>
             </div>
           </div>
-          <div className={style.review}>
+          <div className={style.buttonsBotton}>
+              <a href={game.linkDeploy} target="_blank" rel="noreferrer"><button className={style.buttonAnima} type="button">Play</button></a>
+              <a href={game.linkRepo} target="_blank" rel="noreferrer"><button className={style.buttonAnima} type="button">Code</button></a>
+              <button className={style.buttonAnima} type="button" onClick={handleReview}>Review</button>
+              <Link to={`/edit-game/${id}`}>
+                <button className={style.buttonAnima} type="edit">Edit Game</button>
+              </Link>
+          </div>
+          <div className={style.reviewPopUp}>
             <ReviewPopUp
               trigger={triggingReview}
               setTrigging={setTrigging}
@@ -133,34 +139,30 @@ export function Game() {
             />
           </div>
           <div>
+            <h2 className={style.subTitles}>Reviews</h2>
             {reviewShow ? (
               reviewShow.map((current) => {
                 return (
                   <>
-                    <div>
+                    <div className={style.reviewsRows}>
                       <div>
                         <label>
-                          Owner: {ownerReview[reviewShow.indexOf(current)]}{" "}
+                          <strong>{ownerReview[reviewShow.indexOf(current)]}{" "}</strong>
                         </label>
                       </div>
-                      <div>
-                        <label>Graphics: {current.rates.graphics}</label>
-                        <label>
-                          Sound Effects: {current.rates.soundEffects}
-                        </label>
-                        <label>Gameplay: {current.rates.playability}</label>
-                        <label>Fun: {current.rates.fun}</label>
-                        <label>
-                          Replayability: {current.rates.replayability}
-                        </label>
+                      <div className={style.rates}>
+                        <label>Graphics: ⭐{current.rates.graphics}</label>
+                        <label>Sound Effects: ⭐{current.rates.soundEffects}</label>
+                        <label>Gameplay: ⭐{current.rates.playability}</label>
+                        <label>Fun: ⭐{current.rates.fun}</label>
+                        <label>Replayability: ⭐{current.rates.replayability}</label>
                       </div>
                       <label>{current.userEvaluation}</label>
-                    </div>
-                    <div>
-                      <button type="button">🍪</button>
-                      <Link to={`/edit-review/${current._id}`}>
-                        <button type="edit">🤢 Edit</button>
-                      </Link>
+                      <div>
+                        <Link to={`/edit-review/${current._id}`}>
+                          <button className={style.buttonAnima} type="edit">Edit</button>
+                        </Link>
+                      </div>
                     </div>
                   </>
                 );
