@@ -11,9 +11,13 @@ import { Game } from "./pages/Game";
 import { AboutUs } from "./pages/AboutUs";
 import { CreateGame } from "./pages/CreateGame";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+
 import { EditReview } from "./pages/EditReview";
 import { Toaster } from "react-hot-toast";
 import { EditGame } from "./pages/EditGame";
+
+import {EditProfile} from "./pages/EditProfile";
+
 
 function App() {
   return (
@@ -33,6 +37,7 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/profile/create-game" element={<CreateGame />} />
           <Route path="*" element={<ErrorPage />} />
+
           <Route
             path="/edit-review/:id"
             element={<ProtectedRoute component={EditReview} />}
@@ -41,6 +46,10 @@ function App() {
             path="/edit-game/:id"
             element={<ProtectedRoute component={EditGame} />}
           />
+
+
+          <Route path="/edit-profile/:id" element={<ProtectedRoute component={EditProfile} />} />
+
         </Routes>
         <Footer />
       </AuthContextComponent>
