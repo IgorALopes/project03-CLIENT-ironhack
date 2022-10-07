@@ -14,22 +14,33 @@
   margin-bottom: 15px;
 }
 
+.p {
+  margin-top: 30px;
+}
+
 .form {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 30px;
-  margin-top: 30px;
 }
 
 .formField {
   display: flex;
   gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.screenShots {
+  height: 20px;
 }
 
 .formBlock {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
 }
 
