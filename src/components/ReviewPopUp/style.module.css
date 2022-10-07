@@ -1,18 +1,80 @@
-.main {
-    position:absolute;
-    width:600px;
-    border:1px solid green;
-    margin-top: -200px;
-    margin-left: 100px;
-    background-color: white;
+.container {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  width: 50vw;
+  height: 50vh;
+  border: 1px solid gray;
+  margin-top: -200px;
+  margin-left: 100px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.radios {
-    display: flex;
-    flex-direction: row;    
+.h1 {
+  height: 120px;
+  font-family: var(--global-font-family);
+  font-size: 4.5em;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 15px;
 }
 
-.radios div {
-    margin-left:10px
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 30px;
+}
 
+.formField {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.formBlock {
+  display: flex;
+  gap: 20px;
+}
+
+.button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  margin-bottom: 50px;
+}
+
+.anima {
+  position: relative;
+  height: 30px;
+}
+
+.anima:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #353535;
+  transform-origin: bottom center;
+  transition: transform 0.25s ease-out;
+}
+
+.anima:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom center;
 }

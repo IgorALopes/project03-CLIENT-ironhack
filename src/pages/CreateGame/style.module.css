@@ -33,6 +33,10 @@
   align-items: center;
 }
 
+.radio {
+  margin-right: 20px;
+}
+
 .screenShots {
   height: 20px;
 }
