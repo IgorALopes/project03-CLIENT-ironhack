@@ -3,6 +3,7 @@ import { api } from "../../api/api";
 import style from "./style.module.css";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
+import graphImg from "../../images/GameTastingLOGO-geometric-BK.png";
 
 export function EditReview() {
   const navigate = useNavigate();
@@ -102,7 +103,22 @@ export function EditReview() {
     <main>
       <section>
         <div className={style.container}>
-          <h1>Editar review</h1>
+          <img
+            style={{ width: "15px" }}
+            src={graphImg}
+            alt="Graphism"
+            className={style.img}
+          />
+
+          <h1 className={style.h1}>Edit review</h1>
+
+          <img
+            style={{ width: "15px" }}
+            src={graphImg}
+            alt="Graphism"
+            className={style.img}
+          />
+
           <form onSubmit={handleSubmit} className={style.form}>
             <label>Rates</label>
             <div className={style.formBlock}>
