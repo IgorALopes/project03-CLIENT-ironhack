@@ -101,6 +101,40 @@ export function EditGame() {
     }
   }
 
+  function handleToast() {
+    toast((t) => (
+      <span>
+        Would you like to <b>delete</b> this game?
+        <div className={style.toastBtns}>
+          <button
+            className={style.toastDelBtn}
+            onClick={() => {
+              handleDelete(t);
+            }}
+          >
+            delete
+          </button>
+          <button
+            className={style.toastNoBtn}
+            onClick={() => toast.dismiss(t.id)}
+          >
+            No
+          </button>
+        </div>
+      </span>
+    ));
+  }
+
+  async function handleDelete(t) {
+    try {
+      await api.delete(`game/${id}`);
+      toast.dismiss(t.id);
+      navigate("/profile");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <main>
       <section>
@@ -215,9 +249,9 @@ export function EditGame() {
             Atualizar
           </button>
         </form>
-        {/* <button className={style.deleteBtn} type="button" onClick={handleToast}>
+        <button className={style.deleteBtn} type="button" onClick={handleToast}>
           Delete
-        </button> */}
+        </button>
       </section>
     </main>
   );
