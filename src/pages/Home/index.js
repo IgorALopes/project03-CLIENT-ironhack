@@ -43,7 +43,7 @@ export function Home() {
           .map((currentCard) => {
             return (
               <>
-                <Link to={`/game/${currentCard._id}`}>
+                <Link to={`/${currentCard._id}`}>
                   <Card
                     title={currentCard.title}
                     gameLogo={currentCard.gameLogo}
