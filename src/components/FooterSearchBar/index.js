@@ -1,4 +1,4 @@
-import axios from "axios";
+import { api } from "../../api/api";
 import { useState, useEffect } from "react";
 import Select from "react-select";
 import { useNavigate } from "react-router-dom";
@@ -9,15 +9,13 @@ export function FooterSearchBar() {
   const navigate = useNavigate();
 
   function handleSelect(e) {
-    navigate(`/game/${e.value}`);
+    navigate(`/${e.value}`);
   }
 
   useEffect(() => {
     async function fetchGame() {
       try {
-        const response = await axios.get(
-          `http://localhost:4000/api/1.0/game/games`
-        );
+        const response = await api.get(`/game/games`);
         setGameList(response.data);
       } catch (error) {
         console.log(error);
