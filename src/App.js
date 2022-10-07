@@ -11,11 +11,15 @@ import { Game } from "./pages/Game";
 import { AboutUs } from "./pages/AboutUs";
 import { CreateGame } from "./pages/CreateGame";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import {EditProfile} from "./pages/EditProfile";
+import { Toaster } from "react-hot-toast";
+
 
 function App() {
   return (
     <>
       <AuthContextComponent>
+        <Toaster position="top-center" reverseOrder={false} />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -29,6 +33,8 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/profile/create-game" element={<CreateGame />} />
           <Route path="*" element={<ErrorPage />} />
+
+          <Route path="/edit-profile/:id" element={<ProtectedRoute component={EditProfile} />} />
         </Routes>
         <Footer />
       </AuthContextComponent>
