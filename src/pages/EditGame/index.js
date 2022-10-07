@@ -1,3 +1,8 @@
 export function EditGame() {
-  return <h1>Teste</h1>;
+  return (
+    <div>
+      <h1>Teste</h1>
+      <h2>PAGINA DE EDIÇÃO</h2>
+    </div>
+  );
 }
