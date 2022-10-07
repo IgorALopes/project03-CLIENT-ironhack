@@ -14,23 +14,76 @@ export function Profile() {
   const navigate = useNavigate();
   const { id } = useParams();
   const [cards, setCards] = useState([]);
-  const [user1, setUser1] = useState({});
-  const [userBefore, setBefore] = useState({});
+  const [time, setTime] = useState(false);
+  const [userBefore, setBefore] = useState({reviews:[], rates:{}, avatar:""});
   const [reviewsExibit, setRExibit] = useState([]);
+  const [reviewsShow, setRevShow] = useState ([]);
+
+  const myTimeout = setTimeout(refresh, 5000);
 
   useEffect(() => {
     async function fetchCards() {
       try {
         const response = await api.get("/game/games");
-
         setCards([...response.data]);
-        console.log(cards);
-      } catch (err) {
+        console.log("gaygaygayag", cards);
+        } catch (err) {
         console.log(err);
       }
     }
     fetchCards();
   }, []);
+
+  useEffect(()=>{
+    async function userBefore2(){
+        try {
+            const response = await api.get(`/user/profile`);
+            setBefore(response.data);
+            setRevShow(response.data.reviews);
+            console.log(response.data);
+            console.log(userBefore, "haha");           
+            } catch (err) {
+            console.log(err);
+        }
+    }
+    userBefore2();
+},[])
+
+useEffect(()=>{
+  console.log(reviewsShow)
+  let titleAndGameLogo=localizeGame();
+  let indexReview=0;
+  reviewsShow.map((currReview)=>{
+      indexReview=reviewsShow.indexOf(currReview);
+      currReview.gameLogo=titleAndGameLogo[indexReview].gameLogo;
+      currReview.title=titleAndGameLogo[indexReview].title;
+      console.log(currReview);
+  })
+  setRevShow(reviewsShow);
+},[reviewsShow])
+
+  function localizeGame() {
+    let gameOfOwners=[];
+    let inputerInfo={};
+    reviewsShow.map((curr)=>{
+        cards.map((curr2)=>{
+          if(curr.game===curr2._id) {
+            inputerInfo={
+              title:curr2.title,
+              gameLogo:curr2.gameLogo,
+            }
+            gameOfOwners.push(inputerInfo);
+          }
+        })
+    })
+    return gameOfOwners
+  }
+
+  function refresh() {
+    if (!time) {setRevShow(reviewsShow)}
+    setTime(true)
+    
+  }
 
   function handleLogOut() {
     localStorage.removeItem("loggedInUser");
@@ -54,7 +107,7 @@ export function Profile() {
           <div className={style.userPersonalInfo}> 
             <div className={style.userAvatarName}>
               <img
-                src={user1.avatar}
+                src={userBefore.avatar}
                 className={style.userAvatar}
                 alt="user avatar"
               />
@@ -97,7 +150,24 @@ export function Profile() {
           <div className={style.reviewsMade}>
             <h2 className={style.subTitles}>Reviews you made</h2>
             <div className={style.cardsContainer}>
-              <ReviewsShow />
+                
+                <div>
+                {reviewsShow.map((curr)=>{
+                return(<>
+                <div>
+                <img src={curr.gameLogo} width="40px"/>
+                <div>{curr.title}</div>
+                <div>{curr.userEvaluation}</div>
+                <div>Gráficos: {curr.rates.graphics}</div>
+                <div>Gameplay: {curr.rates.playability}</div>
+                <div>Sound Effects: {curr.rates.soundEffects}</div>
+                <div>Fun Factor: {curr.rates.fun}</div>
+                <div>Replayability: {curr.rates.replayability}</div>
+                <button type="button">🍄Edit pra viajar</button>
+                </div>
+                </>)
+              })}
+                </div>
             </div>
           </div>
           <button className={style.buttons} onClick={handleLogOut}>
