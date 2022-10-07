@@ -1,5 +1,5 @@
-import mglass from "../../images/Magnifying_glass_icon2.png"
-import axios from "axios";
+import mglass from "../../images/Magnifying_glass_icon2.png";
+import { api } from "../../api/api";
 import { useState, useEffect } from "react";
 import Select from "react-select";
 import { useNavigate } from "react-router-dom";
@@ -10,15 +10,13 @@ export function SearchBar() {
   const navigate = useNavigate();
 
   function handleSelect(e) {
-    navigate(`/game/${e.value}`);
+    navigate(`/${e.value}`);
   }
 
   useEffect(() => {
     async function fetchGame() {
       try {
-        const response = await axios.get(
-          `http://localhost:4000/api/1.0/game/games`
-        );
+        const response = await api.get(`/game/games`);
         setGameList(response.data);
       } catch (error) {
         console.log(error);
@@ -28,35 +26,35 @@ export function SearchBar() {
   }, []);
 
   const colourStyles = {
-            control: base => ({
-              ...base,
-              border: 0,
-              // This line disable the blue border
-              boxShadow: "none"
-            }),
-           option: (styles, { data, isDisabled, isFocused, isSelected }) => {
-           console.log({ data, isDisabled, isFocused, isSelected });
-            return {
-              ...styles,
-              backgroundColor: isDisabled 
-                ? "#F00707"
-                : isSelected
-                ? "#F0A207"
-                : isFocused
-                ? "#D6D6D6"
-                : undefined,
-              color: "#353535",
-              ':active': {
-                ...styles[':active'],
-                backgroundColor: !isDisabled
-                  ? isSelected
-                    ? data.color
-                    : "07DF2B"
-                  : undefined,
-              },
-            };
-          }
-       };
+    control: (base) => ({
+      ...base,
+      border: 0,
+      // This line disable the blue border
+      boxShadow: "none",
+    }),
+    option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+      console.log({ data, isDisabled, isFocused, isSelected });
+      return {
+        ...styles,
+        backgroundColor: isDisabled
+          ? "#F00707"
+          : isSelected
+          ? "#F0A207"
+          : isFocused
+          ? "#D6D6D6"
+          : undefined,
+        color: "#353535",
+        ":active": {
+          ...styles[":active"],
+          backgroundColor: !isDisabled
+            ? isSelected
+              ? data.color
+              : "07DF2B"
+            : undefined,
+        },
+      };
+    },
+  };
 
   const options = gameList.map((current) => {
     return {
@@ -72,9 +70,12 @@ export function SearchBar() {
         options={options}
         onChange={handleSelect}
         styles={colourStyles}
-        placeholder={<img src={mglass} alt="magnyfing glass icon"/>}
+        placeholder={<img src={mglass} alt="magnyfing glass icon" />}
         label="Single select"
-        components={{ DropdownIndicator:() => null, IndicatorSeparator:() => null }}
+        components={{
+          DropdownIndicator: () => null,
+          IndicatorSeparator: () => null,
+        }}
       />
     </div>
   );
