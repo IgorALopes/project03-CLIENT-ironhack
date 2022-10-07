@@ -85,11 +85,11 @@ export function Game() {
 
   return (
     <>
-      <div>
-        <div>
-          <div>
-            <h1 className={style.sSV}>Screenshots</h1>
-            <div className={style.shots}>
+      <div className={style.pageContainer}>
+        <div className={style.pageInfo}>
+          <h1 className={style.pageTitle}>Game Plate</h1>
+          <div className={style.gameInfo}>
+            <div className={style.gameSShots}>
               {screenShotView ? (
                 screenShotView.map((current) => {
                   return (
@@ -106,8 +106,10 @@ export function Game() {
               )}
             </div>
             <div>
-              <img src={game.gameLogo} width="40px" alt="img"></img>
-              <h1>{game.title}</h1>
+              <div className={style.gameSShots}>
+                <img src={game.gameLogo} width="40px" alt="img"></img>
+                <h1>{game.title}</h1>
+              </div>
               <button type="button">Play</button>
               <button type="button" onClick={handleReview}>
                 Review
