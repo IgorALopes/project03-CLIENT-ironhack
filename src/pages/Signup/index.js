@@ -3,6 +3,7 @@ import { api } from "../../api/api";
 import { useNavigate } from "react-router-dom";
 import { Formik, Field, Form } from "formik";
 import style from "./style.module.css";
+import graphImg from "../../images/GameTastingLOGO-geometric-BK.png";
 
 export function Signup() {
   const navigate = useNavigate();
@@ -47,7 +48,22 @@ export function Signup() {
             alt="img"
             width="200"
           ></img> */}
+
+        <img
+          style={{ width: "15px" }}
+          src={graphImg}
+          alt="Graphism"
+          className={style.img}
+        />
+
         <h1 className={style.h1}>Create new Chef or Taster</h1>
+
+        <img
+          style={{ width: "15px" }}
+          src={graphImg}
+          alt="Graphism"
+          className={style.img}
+        />
 
         <div className={style.formik}>
           <Formik
