@@ -86,77 +86,88 @@ export function Game() {
   return (
     <>
       <div>
-        <h1 className={style.sSV}>Screenshots</h1>
-        <div className={style.shots}>
-          {screenShotView ? (
-            screenShotView.map((current) => {
-              return (
-                <>
-                  <div>
-                    <p></p>
-                    <img src={current} width="80px" alt="img"></img>
-                  </div>
-                </>
-              );
-            })
-          ) : (
-            <></>
-          )}
-        </div>
         <div>
-          <img src={game.gameLogo} width="40px" alt="img"></img>
-          <h1>{game.title}</h1>
-          <button type="button">Play</button>
-          <button type="button" onClick={handleReview}>
-            Review
-          </button>
-          <button type="button" hidden={hiddenDelete}>
-            Delete
-          </button>
+          <div>
+            <h1 className={style.sSV}>Screenshots</h1>
+            <div className={style.shots}>
+              {screenShotView ? (
+                screenShotView.map((current) => {
+                  return (
+                    <>
+                      <div>
+                        <p></p>
+                        <img src={current} width="80px" alt="img"></img>
+                      </div>
+                    </>
+                  );
+                })
+              ) : (
+                <></>
+              )}
+            </div>
+            <div>
+              <img src={game.gameLogo} width="40px" alt="img"></img>
+              <h1>{game.title}</h1>
+              <button type="button">Play</button>
+              <button type="button" onClick={handleReview}>
+                Review
+              </button>
+              <button type="button" hidden={hiddenDelete}>
+                Delete
+              </button>
+              <Link to={`/edit-game/${id}`}>
+                <button type="edit">🤢 Edit Game</button>
+              </Link>
+            </div>
+            <div>
+              <h2>{game.description}</h2>
+            </div>
+          </div>
+          <div className={style.review}>
+            <ReviewPopUp
+              trigger={triggingReview}
+              setTrigging={setTrigging}
+              id={id}
+            />
+          </div>
+          <div>
+            {reviewShow ? (
+              reviewShow.map((current) => {
+                return (
+                  <>
+                    <div>
+                      <div>
+                        <label>
+                          Owner: {ownerReview[reviewShow.indexOf(current)]}{" "}
+                        </label>
+                      </div>
+                      <div>
+                        <label>Graphics: {current.rates.graphics}</label>
+                        <label>
+                          Sound Effects: {current.rates.soundEffects}
+                        </label>
+                        <label>Gameplay: {current.rates.playability}</label>
+                        <label>Fun: {current.rates.fun}</label>
+                        <label>
+                          Replayability: {current.rates.replayability}
+                        </label>
+                      </div>
+                      <label>{current.userEvaluation}</label>
+                    </div>
+                    <div>
+                      <button type="button">🍪</button>
+                      <Link to={`/edit-review/${current._id}`}>
+                        <button type="edit">🤢 Edit</button>
+                      </Link>
+                    </div>
+                  </>
+                );
+              })
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
-        <div>
-          <h2>{game.description}</h2>
-        </div>
-      </div>
-      <div className={style.review}>
-        <ReviewPopUp
-          trigger={triggingReview}
-          setTrigging={setTrigging}
-          id={id}
-        />
-      </div>
-      <div>
-        {reviewShow ? (
-          reviewShow.map((current) => {
-            return (
-              <>
-                <div>
-                  <div>
-                    <label>
-                      Owner: {ownerReview[reviewShow.indexOf(current)]}{" "}
-                    </label>
-                  </div>
-                  <div>
-                    <label>Graphics: {current.rates.graphics}</label>
-                    <label>Sound Effects: {current.rates.soundEffects}</label>
-                    <label>Gameplay: {current.rates.playability}</label>
-                    <label>Fun: {current.rates.fun}</label>
-                    <label>Replayability: {current.rates.replayability}</label>
-                  </div>
-                  <label>{current.userEvaluation}</label>
-                </div>
-                <div>
-                  <button type="button">🍪</button>
-                  <Link to={`/edit-review/${current._id}`}>
-                    <button type="edit">🤢 Edit</button>
-                  </Link>
-                </div>
-              </>
-            );
-          })
-        ) : (
-          <></>
-        )}
       </div>
     </>
   );
