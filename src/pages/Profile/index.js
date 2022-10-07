@@ -47,9 +47,9 @@ export function Profile() {
 
   return (
     <>
-      <div className={style.userProfilePage}>
-        <div className={style.userProfile}>
-          <h1 className={style.profileTitle}>Taster Profile</h1>
+      <div className={style.pageContainer}>
+        <div className={style.pageInfo}>
+          <h1 className={style.pageTitle}>Taster Profile</h1>
           <div className={style.userPersonalInfo}> 
             <div className={style.userAvatarName}>
               <img src={user1.avatar} className={style.userAvatar} alt="user avatar"/>

@@ -1,4 +1,4 @@
-.userProfilePage {
+.pageContainer {
     padding: 0vw 10vw;
     display: flex;
     justify-content: center;
@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-.userProfile {
+.pageInfo {
     max-width: 1000px;
     padding: 50px;
     display: flex;
@@ -16,11 +16,18 @@
     gap: 30px;
 }
 
-.profileTitle {
+.pageTitle {
     font-family: var(--global-font-family);
     font-size: 4.5em;
     margin-bottom: 50px;
     text-align: center;
+}
+
+.subTitles {
+    font-family: var(--global-font-family);
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .userAvatarName {
@@ -52,13 +59,6 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-}
-
-.subTitles {
-    font-family: var(--global-font-family);
-    font-size: 3em;
-    text-align: center;
-    margin-bottom: 30px;
 }
 
 .buttons {
