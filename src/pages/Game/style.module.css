@@ -46,16 +46,31 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
     text-align: center;
 }
 
 .gameTitle {
     font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.gamePlateLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gamePlate {
+    width: 160px;
+    
 }
 
 .gameLogo {
-    width: 100px;
+    width: 80px;
+    position: absolute;
 }
 
 .buttonAnima {
@@ -95,7 +110,7 @@
 }
 
 .gameSShotImg {
-    max-width: 475px;
+    max-width: 400px;
     width: 100%;
 }
 
@@ -119,4 +134,5 @@
 .rates {
     display: flex;
     gap: 10px;
+    text-align: center;
 }

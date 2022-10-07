@@ -6,6 +6,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { api } from "../../api/api";
 import { ReviewPopUp } from "../../components/ReviewPopUp";
 import { data } from "autoprefixer";
+import plate from "../../images/plate-cut.png"
 
 export function Game() {
   const [triggingReview, setTrigging] = useState(false);
@@ -89,7 +90,10 @@ export function Game() {
         <div className={style.pageInfo}>
           <h1 className={style.pageTitle}>Game Plate</h1>
           <div className={style.gameHeader}>
-            <img className={style.gameLogo} src={game.gameLogo} alt="game Logo"/>
+            <div className={style.gamePlateLogo}>
+              <img className={style.gameLogo} src={game.gameLogo} alt="game Logo"/>
+              <img className={style.gamePlate} src={plate} alt="game plate"/>
+            </div>
             <div>
               <h2 className={style.gameTitle}>{game.title}</h2>
               {/* <p style={{fontSize: "0.7em"}}>by {game.owner.name.split(' ')[0]} {game.owner.name.split(' ')[game.owner.name.split(' ').length - 1]}</p> */}
