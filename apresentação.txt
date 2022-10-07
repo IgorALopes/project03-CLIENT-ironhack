@@ -1,0 +1,59 @@
+Slide 1 - Apresentação
+
+Slide 2 - Introdução - Sonho de Maikon
+
+		Dor que atacamos. 
+ 
+		Maiksonsuel Andradowsky Raintis, era um desenvolvedor em formação.  
+		O que ele mais amava era criar jogos. Sua verdadeira paixão.	
+
+		Mas Maiks tinha um problema. Ele queria saber se seus jogos eram
+		realmente bons. Mesmo tendo uma avó gamer, ele sabia que ela e seus amigos
+		não davam bons feedbacks. Eles sempre diziam que os jogos eram incríveis.
+		Mas ele nunca recebeu um feedback de qualidade sobre seus jogos. 
+
+Slide 3 - Contexto e Conceito.
+
+		Apresentar o conceito do Site.
+
+		Maiks, nosso protagonista, sabia que precisava se aperfeiçoar. 
+		Sempre imaginou-se pertencer à Ironhack, ter a melhor formação possível. 
+		Imaginava-se estudando por lá, aprendendo e podendo desenvolver suas próprias aplicações.
+		Sempre quis fazer um site para pessoas que desenvolvessem jogos conhecerem mais e
+		aperfeiçoarem-se. Até imaginou ele fazendo um site desses como um projeto de estudo. 
+		Ficava imaginando como ele seria...
+
+		
+Slide 4 - Dificuldades
+	
+		Maiks conhecia um pouco de programação. Ele tinha noções básicas, e ponderava sobre o site sempre que podia.
+		Mesmo não sabendo a parte técnica, ele sabia sobre a lógica. Isso permitiu que ele se desdobrasse sobre 
+		quais as necessidades que esse site teria na parte de desenvolvimento. Em suas elucubrações, Maiks passou a ponderar:
+		"Quais seriam as principais dificuldades de desenvolver um site desses?"
+			
+
+Slide 5 - Erro e Trabalho em Equipe
+
+		Com sua lógica, mesmo sem saber a parte de programação, Maiks começou a rabiscar o desenho de seu site. Ele tinha um primo, 
+		Ighor Paulus Raintis, que também tinha esse sonho. No decorrer dos dias, uma nova amizade foi feita. Um tal de Jorger Walkits Silvanos
+		colega de escola, mostrou-se interessado e foi convidado a participar. Com isso juntos começaram a desenvolver seu sonho. Juntos desenharam como
+		seria seu site. Tudo que ele teria, quais seriam as coisas que os membros poderiam fazer ou não. Mas não foi tão simples como
+		pensaram. Haviam duas coisas que eles se deparam pela primeira vez. Trabalhar em conjunto e descobrirem-se múltiplos, tendo
+		de lidar com divergentes opiniões e chegar em um consenso e que haviam várias vias. A segunda coisa era que eles eram sujeitos
+		a falhas. Erros eram cometidos e percebidos, ora por um, ora por outro, ora por outrem, ora por todos.
+		Maiks, pegava-se questionando-se: "Quão interessante é esse trabalho em equipe ? Quantos erros cometemos ?"
+
+Slide 6 - Apresentação
+
+		Depois de algum tempo, eles trabalharam árduamente e por um acaso do destino entraram na sonhada Ironhack. Sabiam que sairiam de lá afiados,
+		e no decorrer do curso aprenderam muito. Chegava o momento principal, a entrega de seu último projeto. Juntaram-se os três e codaram até sair sangue de seus
+		dedos. Até lágrimas de sofrimento brotarem em seus olhos e a vontade de destruir seus computadores fosse insofismável. Mas conseguiram. Eles entregaram
+		o resultado de árduo trabalho. Entregaram seu projeto final:
+
+Slide 7 - Agradecimentos
+		Houveram momentos de angústia, de raiva, de decepção. Mas muito sonho. Conheceram pessoas incríveis. 
+		Tinham um professor de excelência, Alex, o Andre. Um TA de coração enorme e grande humor, mas com nome engraçado que nenhum deles sabia pronunciar, 
+		mas era desconevisky, ou algo assim. Não podiam esquecer de seus colegas, que levarão para o resto da vida com toda sua alegria. O garoto Vidro, o 
+		oneliner Pedro, a influencer Giu, a companheira Zih, a inabalável Carol, o generoso Armando, a calorosa Larissa, o benevolente Vinicius e o impostor Maciel.
+		Assim, ao final de todo esse processo, eles se descobriram melhores seres humanos, graças à todas essas pessoas, a tudo que elas dividiram com eles. 
+		Hoje eles agradecem de coração e levarão isso para suas vidas. Gratidão.
