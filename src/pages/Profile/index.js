@@ -1,7 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext";
-import axios from "axios";
 
 import style from "./style.module.css";
 import { Card } from "../../components/GameCard";
@@ -26,7 +25,6 @@ export function Profile() {
       try {
         const response = await api.get("/game/games");
         setCards([...response.data]);
-        console.log("gaygaygayag", cards);
         } catch (err) {
         console.log(err);
       }
@@ -39,9 +37,7 @@ export function Profile() {
         try {
             const response = await api.get(`/user/profile`);
             setBefore(response.data);
-            setRevShow(response.data.reviews);
-            console.log(response.data);
-            console.log("huhauhauhuhauauhauhahauauhauauhauauhauhau", userBefore);           
+            setRevShow(response.data.reviews);          
             } catch (err) {
             console.log(err);
         }
@@ -50,14 +46,12 @@ export function Profile() {
 },[])
 
 useEffect(()=>{
-  console.log(reviewsShow)
   let titleAndGameLogo=localizeGame();
   let indexReview=0;
   reviewsShow.map((currReview)=>{
       indexReview=reviewsShow.indexOf(currReview);
       currReview.gameLogo=titleAndGameLogo[indexReview].gameLogo;
       currReview.title=titleAndGameLogo[indexReview].title;
-      console.log(currReview);
   })
   setRevShow(reviewsShow);
 },[reviewsShow])
