@@ -19,8 +19,8 @@ export function Profile() {
   const [reviewsExibit, setRExibit] = useState([]);
   const [reviewsShow, setRevShow] = useState ([]);
 
-  const myTimeout = setTimeout(refresh, 5000);
-
+  const myTimeout = setTimeout(refresh, 1000);
+  
   useEffect(() => {
     async function fetchCards() {
       try {

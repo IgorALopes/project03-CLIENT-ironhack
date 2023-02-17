@@ -45,15 +45,6 @@ export function Login() {
         className={style.img}
       />
 
-      <p className={style.p}>
-        Take a seat next to the bonfire and taste some games.
-      </p>
-      {/* <img
-          src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/086a2a33070905.569eb2709b598.jpg"
-          width="200"
-          alt="img"
-        ></img> */}
-
       <div className={style.formik}>
         <Formik
           onSubmit={handleSubmit}
