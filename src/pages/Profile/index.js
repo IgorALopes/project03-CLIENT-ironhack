@@ -152,19 +152,23 @@ useEffect(()=>{
                 
                 <div>
                 {reviewsShow.map((curr)=>{
-                return(<>
-                <div>
-                <img src={curr.gameLogo} width="40px"/>
-                <div>{curr.title}</div>
-                <div>{curr.userEvaluation}</div>
-                <div>Gráficos: {curr.rates.graphics}</div>
-                <div>Gameplay: {curr.rates.playability}</div>
-                <div>Sound Effects: {curr.rates.soundEffects}</div>
-                <div>Fun Factor: {curr.rates.fun}</div>
-                <div>Replayability: {curr.rates.replayability}</div>
-                <button type="button">🍄Edit pra viajar</button>
-                </div>
-                </>)
+                return (
+                  <>
+                    <div>
+                      <img src={curr.gameLogo} width="40px" alt="Game Logo" />
+                      <div>{curr.title}</div>
+                      <div>{curr.userEvaluation}</div>
+                      <div>Gráficos: {curr.rates.graphics}</div>
+                      <div>Gameplay: {curr.rates.playability}</div>
+                      <div>Sound Effects: {curr.rates.soundEffects}</div>
+                      <div>Fun Factor: {curr.rates.fun}</div>
+                      <div>Replayability: {curr.rates.replayability}</div>
+                      <Link to={`/edit-review/${curr._id}`}>
+                        <button type="button">Edit</button>
+                      </Link>
+                    </div>
+                  </>
+                );
               })}
                 </div>
             </div>
