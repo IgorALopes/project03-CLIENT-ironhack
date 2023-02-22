@@ -10,22 +10,13 @@ export function EditReview() {
   const { id } = useParams();
 
   const [form, setForm] = useState({
-    graphics: 1,
-    soundEffects: 1,
-    playability: 1,
-    fun: 1,
-    replayability: 1,
+    graphics: 3,
+    soundEffects: 0,
+    playability: 0,
+    fun: 0,
+    replayability: 0,
     userEvaluation: "",
-  });
-
-  const [rates, setRates] = useState({
-    graphics: 1,
-    soundEffects: 1,
-    playability: 1,
-    fun: 1,
-    replayability: 1,
-    userEvaluation: "",
-  });
+  }); 
 
   useEffect(() => {
     async function fetchReview() {
@@ -33,6 +24,7 @@ export function EditReview() {
         const response = await api.get(`/review/${id}`);
         delete response.data._id;
         setForm({ ...response.data });
+        console.log(form)
       } catch (err) {
         console.log(err);
       }
@@ -40,20 +32,20 @@ export function EditReview() {
     fetchReview();
   }, []);
 
-  function handleChangeRates(e) {
-    setRates({ ...rates, [e.target.name]: e.target.value });
+  function handleChangeform(e) {
+    setForm({ ...form, [e.target.name]: e.target.value });
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const evaluationStr = rates.userEvaluation;
-    const sendReview = { rates: {}, userEvaluation: "" };
-    for (let objetos in rates) {
-      rates[objetos] = Number(rates[objetos]);
+    const evaluationStr = form.userEvaluation;
+    const sendReview = { form: {}, userEvaluation: "" };
+    for (let objetos in form) {
+      form[objetos] = Number(form[objetos]);
     }
-    Object.assign(sendReview.rates, rates);
+    Object.assign(sendReview.form, form);
     sendReview.userEvaluation = evaluationStr;
-    delete sendReview.rates.userEvaluation;
+    delete sendReview.form.userEvaluation;
     try {
       const response = await api.put(`/review/${id}`, sendReview);
 
@@ -120,7 +112,7 @@ export function EditReview() {
           />
 
           <form onSubmit={handleSubmit} className={style.form}>
-            <label>Rates</label>
+            <label>form</label>
             <div className={style.formBlock}>
               <div className={style.formField}>
                 <label htlmfor="graphics">graphics:</label>
@@ -128,8 +120,8 @@ export function EditReview() {
                   id="graphics"
                   name="graphics"
                   type="number"
-                  value={rates.graphics}
-                  onChange={handleChangeRates}
+                  value={form.graphics}
+                  onChange={handleChangeform}
                 >
                   <option hidden defaultValue>
                     Select
@@ -148,8 +140,8 @@ export function EditReview() {
                   id="soundEffects"
                   name="soundEffects"
                   type="number"
-                  value={rates.soundEffects}
-                  onChange={handleChangeRates}
+                  value={form.soundEffects}
+                  onChange={handleChangeform}
                 >
                   <option hidden defaultValue>
                     Select
@@ -168,8 +160,8 @@ export function EditReview() {
                   id="playability"
                   name="playability"
                   type="number"
-                  value={rates.playability}
-                  onChange={handleChangeRates}
+                  value={form.playability}
+                  onChange={handleChangeform}
                 >
                   <option hidden defaultValue>
                     Select
@@ -188,8 +180,8 @@ export function EditReview() {
                   id="fun"
                   name="fun"
                   type="number"
-                  value={rates.fun}
-                  onChange={handleChangeRates}
+                  value={form.fun}
+                  onChange={handleChangeform}
                 >
                   <option hidden defaultValue>
                     Select
@@ -208,8 +200,8 @@ export function EditReview() {
                   id="replayability"
                   name="replayability"
                   type="number"
-                  value={rates.replayability}
-                  onChange={handleChangeRates}
+                  value={form.replayability}
+                  onChange={handleChangeform}
                 >
                   <option hidden defaultValue>
                     Select
@@ -231,8 +223,8 @@ export function EditReview() {
                 id="userEvaluation"
                 name="userEvaluation"
                 type="text"
-                value={rates.userEvaluation}
-                onChange={handleChangeRates}
+                value={form.userEvaluation}
+                onChange={handleChangeform}
                 style={{ width: "100%" }}
               />
             </div>
