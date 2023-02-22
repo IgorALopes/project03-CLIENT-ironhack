@@ -10,13 +10,21 @@ export function EditReview() {
   const { id } = useParams();
 
   const [form, setForm] = useState({
-    graphics: 3,
+    graphics: 0,
+      soundEffects: 0,
+      playability: 0,
+      fun: 0,
+      replayability: 0,
+    userEvaluation: "",
+  }); 
+
+  const [rates, setRates] = useState({
+    graphics: 0,
     soundEffects: 0,
     playability: 0,
     fun: 0,
     replayability: 0,
-    userEvaluation: "",
-  }); 
+  })
 
   useEffect(() => {
     async function fetchReview() {
@@ -35,6 +43,13 @@ export function EditReview() {
   function handleChangeform(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
+
+function handleChangeRates(e) {
+  setRates({...rates, [e.target.name]: e.target.value})
+  setForm({...form,
+  rates: [form.rates, rates]})
+  console.log(form.rates)
+}
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -120,12 +135,9 @@ export function EditReview() {
                   id="graphics"
                   name="graphics"
                   type="number"
-                  value={form.graphics}
+                  value={form.rates[0].graphics}
                   onChange={handleChangeform}
                 >
-                  <option hidden defaultValue>
-                    Select
-                  </option>
                   <option disabled>graphics</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -140,7 +152,7 @@ export function EditReview() {
                   id="soundEffects"
                   name="soundEffects"
                   type="number"
-                  value={form.soundEffects}
+                  value={form.rates.soundEffects}
                   onChange={handleChangeform}
                 >
                   <option hidden defaultValue>

@@ -11,7 +11,7 @@ export function ReviewPopUp(props) {
 
   async function onSubmit(valueReview, actions) {
     const reviewStr = valueReview.userEvaluation;
-    const reviewValues = { rates: {}, userEvaluation: "" };
+    const reviewValues = { graphics: 0, soundEffects: 0, playability: 0, fun: 0, replayability: 0, userEvaluation: "" };
     for (let objetos in valueReview) {
       valueReview[objetos] = Number(valueReview[objetos]);
     }
