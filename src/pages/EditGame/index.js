@@ -15,11 +15,15 @@ export function EditGame() {
     type: "",
     esrb: "",
     linkDeploy: "",
-    linkRepo: "",
+    linkRepo: [],
     description: "",
     gameLogo: "",
-    screenShots: "",
+    screenShots: [],
   });
+
+  const [screenShots, setScreenShots] = useState({
+    screenshots: [],
+  })
 
   const [files, setFiles] = useState("");
 
@@ -33,10 +37,9 @@ export function EditGame() {
     async function fetchGame() {
       try {
         const response = await api.get(`/game/${id}`);
-        delete response.data._id;
-        setForm({ ...response.data });
-        setBaseForm(response.data);
-        console.log(baseForm);
+        setForm({...response.data.game});
+        setBaseForm(response.data.game);
+        console.log(response.data.url)
       } catch (err) {
         console.log(err);
       }
@@ -46,8 +49,9 @@ export function EditGame() {
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
-    console.log(form);
   }
+
+
 
   function handleImg(e) {
     setFiles(e.target.files[0]);
@@ -56,6 +60,7 @@ export function EditGame() {
   function handleImg2(e) {
     setFiles2(e.target.files[0]);
   }
+
 
   async function handleUpload2(e) {
     e.preventDefault();
@@ -95,10 +100,17 @@ export function EditGame() {
       });
 
       navigate(`/${id}`);
-      console.log(response);
     } catch (err) {
       console.log(err);
     }
+  }
+
+
+  function handleDeleteScreenShot(screenShot) {
+    let newSceenShoots = form.screenShots.filter((current) => {
+      return current !== screenShot
+    })
+    setForm({...form, screenShots: [...newSceenShoots]})
   }
 
   function handleToast() {
@@ -137,11 +149,13 @@ export function EditGame() {
 
   return (
     <main className={style.pageContainer}>
-      <section className={style.pageInfo}>
-        <h1 className={style.pageTitle}>Edit Game</h1>
-        <form className={style.mainForm} onSubmit={handleSubmit}>
-          <label>Title</label>
-          <input
+    <section className={style.pageInfo}>
+    <h1 className={style.pageTitle}>Edit Game</h1>
+
+    <form className={style.mainForm} onSubmit={handleSubmit}>
+
+    <label>Title</label>
+    <input
             className={style.input}
             id="title"
             name="title"
@@ -150,8 +164,8 @@ export function EditGame() {
             onChange={handleChange}
           />
 
-          <label>Genre</label>
-          <input
+    <label>Genre</label>
+    <input
             className={style.input}
             id="type"
             name="type"
@@ -160,8 +174,8 @@ export function EditGame() {
             onChange={handleChange}
           />
 
-          <label htlmfor="esrb">ESRB</label>
-          <select
+    <label htlmfor="esrb">ESRB</label>
+    <select
             id="esrb"
             name="esrb"
             type="text"
@@ -177,7 +191,7 @@ export function EditGame() {
             <option value="3Teen 13+">Teen 13+</option>
             <option value="Mature 17+">Mature 17+</option>
             <option value="Adults Only 18+">Adults Only 18+</option>
-          </select>
+      </select>
 
           <label htmlFor="linkDeploy">Deploy's link</label>
           <input
@@ -189,7 +203,7 @@ export function EditGame() {
             onChange={handleChange}
           />
 
-          <label htmlFor="linkRepo ">Repository's link</label>
+        <label htmlFor="linkRepo ">Repository's link</label>
           <input
             className={style.input}
             id="linkRepo"
@@ -199,7 +213,7 @@ export function EditGame() {
             onChange={handleChange}
           />
 
-          <label htmlFor="description ">Description</label>
+<label htmlFor="description ">Description</label>
           <textarea
             className={style.inputTextArea}
             id="description"
@@ -209,16 +223,15 @@ export function EditGame() {
             onChange={handleChange}
           />
 
-          <label htmlFor="gameLogo">Game logo</label>
-          <input
+<label htmlFor="gameLogo">Change Game logo</label>
+<input
             id="gameLogo"
             name="gameLogo"
             type="file"
-            value={form.gameLogo}
+            accept=".jpg, .jpeg, .png"
             onChange={handleImg}
           />
-
-          {/* <img src={baseForm.game.gameLogo} alt="img" width="40px" /> */}
+          
 
           <div>
             <form className={style.mainForm}>
@@ -237,23 +250,25 @@ export function EditGame() {
               return (
                 <>
                   <div>
-                    <p>{current}</p>
                     <img src={current} width="80px" alt="Game Screenshot"></img>
                   </div>
                 </>
               );
             })}
           </div>
-        </form>
-        <div className={style.bottomButtons}>
-          <button className={style.buttonAnima} type="submit">
+
+    </form>
+
+    <div className={style.bottomButtons}>
+          <button className={style.buttonAnima} type="submit" onClick={handleSubmit}>
             Update
           </button>
           <button className={style.buttonAnima} type="button" onClick={handleToast}>
             Delete
           </button>
-        </div>
-      </section>
+</div>
+
+    </section>
     </main>
   );
 }
