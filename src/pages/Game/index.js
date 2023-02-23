@@ -155,11 +155,11 @@ export function Game() {
                         </label>
                       </div>
                       <div className={style.rates}>
-                        <label>Graphics: ⭐{current.rates.graphics}</label>
-                        <label>Sound Effects: ⭐{current.rates.soundEffects}</label>
-                        <label>Gameplay: ⭐{current.rates.playability}</label>
-                        <label>Fun: ⭐{current.rates.fun}</label>
-                        <label>Replayability: ⭐{current.rates.replayability}</label>
+                        <label>Graphics: ⭐{current.graphics}</label>
+                        <label>Sound Effects: ⭐{current.soundEffects}</label>
+                        <label>Gameplay: ⭐{current.playability}</label>
+                        <label>Fun: ⭐{current.fun}</label>
+                        <label>Replayability: ⭐{current.replayability}</label>
                       </div>
                       <label>{current.userEvaluation}</label>
                       <div>

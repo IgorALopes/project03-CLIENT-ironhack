@@ -18,14 +18,6 @@ export function EditReview() {
     userEvaluation: "",
   }); 
 
-  const [rates, setRates] = useState({
-    graphics: 0,
-    soundEffects: 0,
-    playability: 0,
-    fun: 0,
-    replayability: 0,
-  })
-
   useEffect(() => {
     async function fetchReview() {
       try {
@@ -44,29 +36,13 @@ export function EditReview() {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-function handleChangeRates(e) {
-  setRates({...rates, [e.target.name]: e.target.value})
-  setForm({...form,
-  rates: [form.rates, rates]})
-  console.log(form.rates)
-}
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const evaluationStr = form.userEvaluation;
-    const sendReview = { form: {}, userEvaluation: "" };
-    for (let objetos in form) {
-      form[objetos] = Number(form[objetos]);
-    }
-    Object.assign(sendReview.form, form);
-    sendReview.userEvaluation = evaluationStr;
-    delete sendReview.form.userEvaluation;
     try {
-      const response = await api.put(`/review/${id}`, sendReview);
+       await api.put(`/review/${id}`, form);
 
-      navigate(`/${response.data.game}`);
-
-      console.log(response);
+      navigate("/profile");
     } catch (err) {
       console.log(err);
     }
@@ -127,7 +103,6 @@ function handleChangeRates(e) {
           />
 
           <form onSubmit={handleSubmit} className={style.form}>
-            <label>form</label>
             <div className={style.formBlock}>
               <div className={style.formField}>
                 <label htlmfor="graphics">graphics:</label>
@@ -135,7 +110,7 @@ function handleChangeRates(e) {
                   id="graphics"
                   name="graphics"
                   type="number"
-                  value={form.rates[0].graphics}
+                  value={form.graphics}
                   onChange={handleChangeform}
                 >
                   <option disabled>graphics</option>
@@ -152,7 +127,7 @@ function handleChangeRates(e) {
                   id="soundEffects"
                   name="soundEffects"
                   type="number"
-                  value={form.rates.soundEffects}
+                  value={form.soundEffects}
                   onChange={handleChangeform}
                 >
                   <option hidden defaultValue>

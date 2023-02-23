@@ -152,11 +152,11 @@ useEffect(()=>{
                       <img src={curr.gameLogo} width="40px" alt="Game Logo" />
                       <div>{curr.title}</div>
                       <div>{curr.userEvaluation}</div>
-                      <div>Gráficos: {curr.rates.graphics}</div>
-                      <div>Gameplay: {curr.rates.playability}</div>
-                      <div>Sound Effects: {curr.rates.soundEffects}</div>
-                      <div>Fun Factor: {curr.rates.fun}</div>
-                      <div>Replayability: {curr.rates.replayability}</div>
+                      <div>Gráficos: {curr.graphics}</div>
+                      <div>Gameplay: {curr.playability}</div>
+                      <div>Sound Effects: {curr.soundEffects}</div>
+                      <div>Fun Factor: {curr.fun}</div>
+                      <div>Replayability: {curr.replayability}</div>
                       <Link to={`/edit-review/${curr._id}`}>
                         <button type="button">Edit</button>
                       </Link>
